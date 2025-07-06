@@ -42,4 +42,26 @@ export class Header {
   toggleLanguage() {
     this.language.update((lang) => (lang === 'es' ? 'en' : 'es'));
   }
+
+    scrollToSection(sectionId: string): void {
+    // Si el menú móvil está abierto, ciérralo al hacer clic en un enlace.
+    if (this.mobileMenuOpen()) {
+      this.toggleMobileMenu();
+    }
+
+    const element = document.getElementById(sectionId);
+    if (element) {
+      // Usa scrollIntoView con comportamiento suave
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      
+      // Opcional: Si tienes un header fijo que oculta parte de la sección
+      // const headerOffset = 80; // Ajusta este valor según la altura de tu header
+      // const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+      // window.scrollTo({
+      //   top: elementPosition - headerOffset,
+      //   behavior: 'smooth'
+      // });
+    }
+  }
+
 }

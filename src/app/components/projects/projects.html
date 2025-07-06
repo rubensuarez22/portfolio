@@ -1,53 +1,61 @@
-<section id="proyectos" [class]="'py-20 ' + (darkMode() ? 'bg-gray-950' : 'bg-white') + ' transition-colors duration-300'">
-  <div class="container mx-auto px-4">
-    <div class="flex items-center mb-16">
-      <div class="mr-4 text-3xl text-[#3b82f6]">
-        <span class="inline-block">
-          <code>&lt;/&gt;</code>
-        </span>
-      </div>
-      <h2 [class]="'text-3xl md:text-4xl font-bold ' + (darkMode() ? 'text-white' : 'text-gray-900')">
-        Proyectos
-      </h2>
-    </div>
-
-    <div class="space-y-24">
-      @for (project of projects; track project.id; let i = $index) {
-        <div [class]="'flex flex-col gap-8 md:gap-12 ' + (i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse')">
-          
-          <div class="w-full md:w-1/2 rounded-lg overflow-hidden">
-            <img [src]="project.image" [alt]="project.title" class="w-full h-auto object-cover" />
-          </div>
-
-          <div class="w-full md:w-1/2 flex flex-col justify-center">
-            <h3 [class]="'text-3xl font-bold mb-4 ' + (darkMode() ? 'text-white' : 'text-gray-900')">
-              {{ project.title }}
-            </h3>
-            <p [class]="'mb-6 ' + (darkMode() ? 'text-white' : 'text-gray-700')">
-              {{ project.description }}
-            </p>
-            
-            <div class="flex space-x-4 mb-6">
-              @for (tech of project.techStack; track tech.name) {
-                <div class="w-8 h-8" [title]="tech.name">
-                  <img [src]="tech.icon" [alt]="tech.name" class="w-full h-full object-contain" />
-                </div>
-              }
-            </div>
-
-            <div class="flex space-x-4">
-              <a [href]="project.codeLink" target="_blank" [class]="'px-5 py-2 border rounded-md flex items-center text-sm transition-colors ' + (darkMode() ? 'bg-[#1A1A1A] hover:bg-gray-800 border-gray-700 text-white' : 'bg-gray-100 hover:bg-gray-200 border-gray-300 text-gray-900')">
-                <lucide-angular [img]="GithubIcon" [size]="16" class="mr-2"></lucide-angular>
-                Código
-              </a>
-              <a [href]="project.demoLink" target="_blank" class="px-5 py-2 bg-[#3b82f6] hover:bg-[#2563eb] rounded-md flex items-center text-sm transition-colors text-white">
-                <lucide-angular [img]="ExternalLinkIcon" [size]="16" class="mr-2"></lucide-angular>
-                Demo
-              </a>
-            </div>
-          </div>
+<section 
+  id="proyectos" 
+  [class]="'py-20 ' + (darkMode() ? 'bg-gray-950' : 'bg-gray-50') + ' transition-colors duration-300'">
+  
+  <div
+    appScrollFadeIn
+    (elementVisible)="onSectionVisible($event)"
+    [@fadeAnimation]="sectionVisible() ? 'visible' : 'void'"
+  >
+    <div class="container mx-auto px-4">
+      <div class="flex items-center mb-16">
+        <div class="mr-4 text-3xl text-[#3b82f6]">
+          <span class="inline-block">
+            <code>&lt;/&gt;</code>
+          </span>
         </div>
-      }
+        <h2 [class]="'text-3xl md:text-4xl font-bold ' + (darkMode() ? 'text-white' : 'text-gray-900')">
+          Proyectos
+        </h2>
+      </div>
+
+      <div class="space-y-24">
+        @for (project of projects; track project.id; let i = $index) {
+          <div [class]="'flex flex-col gap-8 md:gap-12 ' + (i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse')">
+            
+            <div class="w-full md:w-1/2 rounded-lg overflow-hidden">
+              <img [src]="project.image" [alt]="project.title" class="w-full h-auto object-cover" />
+            </div>
+
+            <div class="w-full md:w-1/2 flex flex-col justify-center">
+              <h3 [class]="'text-3xl font-bold mb-4 ' + (darkMode() ? 'text-white' : 'text-gray-900')">
+                {{ project.title }}
+              </h3>
+              <p [class]="'mb-6 ' + (darkMode() ? 'text-white' : 'text-gray-700')">
+                {{ project.description }}
+              </p>
+              
+              <div class="flex space-x-4 mb-6">
+                @for (tech of project.techStack; track tech.name) {
+                  <div class="w-8 h-8" [title]="tech.name">
+                    <img [src]="tech.icon" [alt]="tech.name" class="w-full h-full object-contain" />
+                  </div>
+                }
+              </div>
+
+              <div class="flex space-x-4">
+                <a [href]="project.codeLink" target="_blank" [class]="'px-5 py-2 border rounded-md flex items-center text-sm transition-colors ' + (darkMode() ? 'bg-[#1A1A1A] hover:bg-gray-800 border-gray-700 text-white' : 'bg-gray-100 hover:bg-gray-200 border-gray-300 text-gray-900')">
+                  <lucide-angular [img]="GithubIcon" [size]="16" class="mr-2"></lucide-angular>
+                  Código
+                </a>
+                <a [href]="project.demoLink" target="_blank" class="px-5 py-2 bg-[#3b82f6] hover:bg-[#2563eb] rounded-md flex items-center text-sm transition-colors text-white">
+                  <lucide-angular [img]="ExternalLinkIcon" [size]="16" class="mr-2"></lucide-angular>
+                  Demo
+                </a>
+              </div>
+            </div>
+          </div>
+        }
+      </div>
     </div>
-  </div>
-</section>
+  </div> </section>

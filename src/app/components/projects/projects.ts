@@ -1,21 +1,52 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
 import { ThemeService } from '../../services/theme';
 
 // Importamos el MÓDULO y los OBJETOS de los íconos
 import { LucideAngularModule, GithubIcon, ExternalLinkIcon } from 'lucide-angular';
+// Importa lo mismo que en Hero.ts para las animaciones
+import {
+  trigger,
+  state,
+  style,
+  animate,
+  transition
+} from '@angular/animations';
+import { ScrollFadeInDirective } from '../../directives/scroll-fade-in';
 
 @Component({
   selector: 'app-projects',
   standalone: true,
-  imports: [LucideAngularModule], // El módulo se encarga de los íconos
+  imports: [LucideAngularModule, ScrollFadeInDirective], // El módulo se encarga de los íconos
   templateUrl: './projects.html',
   styleUrl: './projects.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
+    animations: [
+    trigger('fadeAnimation', [
+      state('void', style({
+        opacity: 0,
+        transform: 'translateY(20px)'
+      })),
+      state('visible', style({
+        opacity: 1,
+        transform: 'translateY(0)'
+      })),
+      transition('void => visible', [
+        animate('800ms ease-out')
+      ]),
+      transition('visible => void', [
+        animate('400ms ease-in')
+      ])
+    ])
+  ]
 })
 export class Projects {
   private themeService = inject(ThemeService);
   darkMode = this.themeService.darkMode;
+  sectionVisible = signal(false); // Necesitas esta signal
 
+  onSectionVisible(isVisible: boolean) {
+    this.sectionVisible.set(isVisible);
+  }
   // Exponemos los objetos de los íconos para el HTML
   readonly GithubIcon = GithubIcon;
   readonly ExternalLinkIcon = ExternalLinkIcon;

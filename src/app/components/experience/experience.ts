@@ -1,13 +1,51 @@
+// src/app/components/experience/experience.ts
+
 import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
 import { ThemeService } from '../../services/theme';
 
+// Importa las funciones de animación
+import {
+  trigger,
+  state,
+  style,
+  animate,
+  transition
+} from '@angular/animations';
+
+// Importa la directiva de detección de scroll (ajusta la ruta si es diferente)
+import { ScrollFadeInDirective } from '../../directives/scroll-fade-in';
 @Component({
   selector: 'app-experience',
   standalone: true,
-  imports: [], // No necesitamos íconos aquí
+  imports: [
+    ScrollFadeInDirective // <-- Añade la directiva a los imports
+  ],
   templateUrl: './experience.html',
   styleUrl: './experience.css',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  // Añade las animaciones aquí
+  animations: [
+    trigger('fadeAnimation', [
+      // Estado inicial: invisible y ligeramente desplazado hacia abajo
+      state('void', style({
+        opacity: 0,
+        transform: 'translateY(20px)'
+      })),
+      // Estado final: completamente visible en su posición original
+      state('visible', style({
+        opacity: 1,
+        transform: 'translateY(0)'
+      })),
+      // Transición al entrar en la vista
+      transition('void => visible', [
+        animate('800ms ease-out') // Animación de 800ms con un easing suave
+      ]),
+      // Opcional: Transición al salir de la vista (si quieres que se desanime)
+      transition('visible => void', [
+        animate('400ms ease-in')
+      ])
+    ])
+  ]
 })
 export class Experience {
   private themeService = inject(ThemeService);
@@ -15,6 +53,15 @@ export class Experience {
 
   // Signal para controlar la pestaña activa. Inicia en 'work'.
   activeTab = signal<'work' | 'education'>('work');
+
+  // Declara una signal para controlar el estado de visibilidad de la sección
+  sectionVisible = signal(false); // <-- ¡NECESARIO AÑADIR ESTO!
+
+  // Método que será llamado por la directiva ScrollFadeInDirective
+  // cuando la sección entre o salga del área visible
+  onSectionVisible(isVisible: boolean) { // <-- ¡NECESARIO AÑADIR ESTO!
+    this.sectionVisible.set(isVisible);
+  }
 
   workExperience = [
     {
