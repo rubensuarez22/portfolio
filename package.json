@@ -4,10 +4,20 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "lint": "ng lint"
+    "clean:dist": "rimraf dist",
+    "clean:docs": "rimraf docs",
+    "build:prod": "ng build --configuration production",
+    "build:prod:gh": "ng build --configuration production --base-href \"/portfoliors/\"",
+    "postbuild:flatten": "copyfiles -u 3 \"dist/portfoliors/browser/**/*\" dist/portfoliors && copyfiles \"dist/portfoliors/3rdpartylicenses.txt\" dist/portfoliors && copyfiles \"dist/portfoliors/prerendered-routes.json\" dist/portfoliors && rimraf dist/portfoliors/browser && rimraf dist/portfoliors/dist",
+    "build:flat": "npm run clean:dist && npm run build:prod && npm run postbuild:flatten",
+    "build:flat:gh": "npm run clean:dist && npm run build:prod:gh && npm run postbuild:flatten",
+    "copy:flat_to_docs": "copyfiles -u 2 \"dist/portfoliors/**/*\" docs",
+    "build:github_pages": "npm run build:flat:gh && npm run clean:docs && npm run copy:flat_to_docs",
+    "e2e": "ng e2e",
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run"
   },
   "prettier": {
     "overrides": [
@@ -40,6 +50,7 @@
     "@types/jasmine": "~5.1.0",
     "angular-eslint": "20.1.1",
     "autoprefixer": "^10.4.21",
+    "copyfiles": "^2.4.1",
     "eslint": "^9.29.0",
     "jasmine-core": "~5.7.0",
     "karma": "~6.4.0",
