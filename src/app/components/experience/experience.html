@@ -1,0 +1,50 @@
+<section id="experiencia" [class]="'py-20 ' + (darkMode() ? 'bg-gray-950' : 'bg-gray-50') + ' transition-colors duration-300'">
+  <div class="container mx-auto px-4">
+    <h2 [class]="'text-3xl md:text-4xl font-bold mb-12 ' + (darkMode() ? 'text-white' : 'text-gray-900')">
+      Experiencia
+    </h2>
+
+    <div class="mb-8">
+      <div [class]="'inline-flex p-1 rounded-lg ' + (darkMode() ? 'bg-[#1A1A1A]' : 'bg-white')">
+        <button 
+          (click)="activeTab.set('work')"
+          [class]="'px-6 py-2 rounded-md transition-colors ' + (activeTab() === 'work' ? 'bg-[#3b82f6] text-white' : (darkMode() ? 'text-white hover:text-[#3b82f6]' : 'text-gray-900 hover:text-[#3b82f6]'))">
+          Trabajo
+        </button>
+        <button 
+          (click)="activeTab.set('education')"
+          [class]="'px-6 py-2 rounded-md transition-colors ' + (activeTab() === 'education' ? 'bg-[#3b82f6] text-white' : (darkMode() ? 'text-white hover:text-[#3b82f6]' : 'text-gray-900 hover:text-[#3b82f6]'))">
+          Estudios
+        </button>
+      </div>
+    </div>
+
+    <div [class]="'relative border-l ml-6 pl-8 pb-8 ' + (darkMode() ? 'border-gray-700' : 'border-gray-300')">
+      @if (activeTab() === 'work') {
+        @for (item of workExperience; track item.id) {
+          <div class="mb-12 relative">
+            <div [class]="'absolute -left-[3.3rem] mt-1.5 w-8 h-8 rounded-full border-4 flex items-center justify-center ' + (darkMode() ? 'bg-[#1A1A1A] border-gray-950' : 'bg-white border-gray-50')">
+              <img [src]="item.logo" [alt]="item.company" class="w-6 h-6 rounded-full" />
+            </div>
+            <div class="text-sm text-[#3b82f6] mb-1">{{ item.period }}</div>
+            <h3 [class]="'text-xl font-bold mb-1 ' + (darkMode() ? 'text-white' : 'text-gray-900')">{{ item.company }}</h3>
+            <div [class]="'text-lg mb-2 ' + (darkMode() ? 'text-white' : 'text-gray-900')">{{ item.role }}</div>
+            <p [class]="darkMode() ? 'text-white' : 'text-gray-700'">{{ item.description }}</p>
+          </div>
+        }
+      } @else {
+        @for (item of education; track item.id) {
+          <div class="mb-12 relative">
+            <div [class]="'absolute -left-[3.3rem] mt-1.5 w-8 h-8 rounded-full border-4 flex items-center justify-center ' + (darkMode() ? 'bg-[#1A1A1A] border-gray-950' : 'bg-white border-gray-50')">
+              <img [src]="item.logo" [alt]="item.institution" class="w-6 h-6 rounded-full" />
+            </div>
+            <div class="text-sm text-[#3b82f6] mb-1">{{ item.period }}</div>
+            <h3 [class]="'text-xl font-bold mb-1 ' + (darkMode() ? 'text-white' : 'text-gray-900')">{{ item.institution }}</h3>
+            <div [class]="'text-lg mb-2 ' + (darkMode() ? 'text-white' : 'text-gray-900')">{{ item.degree }}</div>
+            <p [class]="darkMode() ? 'text-white' : 'text-gray-700'">{{ item.description }}</p>
+          </div>
+        }
+      }
+    </div>
+  </div>
+</section>

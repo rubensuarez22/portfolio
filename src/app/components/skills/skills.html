@@ -1,0 +1,30 @@
+<section id="habilidades" [class]="'py-20 ' + (darkMode() ? 'bg-gray-950' : 'bg-white') + ' transition-colors duration-300'">
+  <div class="container mx-auto px-4">
+    <h2 [class]="'text-3xl md:text-4xl font-bold mb-6 ' + (darkMode() ? 'text-white' : 'text-gray-900')">
+      Tecnologías
+    </h2>
+    <p [class]="'mb-12 max-w-3xl ' + (darkMode() ? 'text-white' : 'text-gray-700')">
+      Soy proficiente en una variedad de tecnologías modernas que me permiten construir soluciones funcionales y robustas. Estas son algunas de mis principales tecnologías.
+    </p>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+      @for (skill of skills; track skill.name) {
+        <div [class]="'flex items-center p-4 rounded-lg border transition-transform hover:scale-[1.02] ' + (darkMode() ? 'border-gray-800 bg-[#1A1A1A]' : 'border-gray-200 bg-white')">
+          
+          <div [class]="'w-12 h-12 flex items-center justify-center mr-4 rounded-md p-2 ' + (darkMode() ? 'bg-gray-900' : 'bg-gray-100')">
+            <img [src]="skill.icon" [alt]="skill.name" class="w-8 h-8 object-contain" />
+          </div>
+
+          <div>
+            <h3 class="font-semibold" [class]="skill.textColor">
+              {{ skill.name }}
+            </h3>
+            <p [class]="'text-sm ' + (darkMode() ? 'text-white' : 'text-gray-700')">
+              {{ skill.description }}
+            </p>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>

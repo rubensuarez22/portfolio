@@ -1,0 +1,71 @@
+<header [class]="'fixed w-full z-50 border-b transition-colors duration-300 ' + (darkMode() ? 'bg-gray-950/80 backdrop-blur-sm border-gray-800' : 'bg-white/80 backdrop-blur-sm border-gray-200')">
+  <div class="container mx-auto px-4 py-4 flex items-center">
+    <div class="text-xl font-bold mr-8">
+      <span [class]="darkMode() ? 'text-white' : 'text-gray-900'">{{ '{' }} </span>
+      <span class="text-[#3b82f6]">dev</span>
+      <span [class]="darkMode() ? 'text-white' : 'text-gray-900'"> {{ '}' }}</span>
+    </div>
+
+    <button (click)="toggleMobileMenu()" [class]="'md:hidden mr-auto ' + (darkMode() ? 'text-white' : 'text-gray-900')">
+      @if (mobileMenuOpen()) {
+        <lucide-angular [img]="XIcon" [size]="24"></lucide-angular>
+      } @else {
+        <lucide-angular [img]="MenuIcon" [size]="24"></lucide-angular>
+      }
+    </button>
+
+    <nav class="hidden md:flex mx-auto space-x-8">
+      <a href="#sobre-mi" [class]="'transition-colors ' + (darkMode() ? 'text-white hover:text-[#3b82f6]' : 'text-gray-900 hover:text-[#3b82f6]')">Sobre mí</a>
+      <a href="#proyectos" [class]="'transition-colors ' + (darkMode() ? 'text-white hover:text-[#3b82f6]' : 'text-gray-900 hover:text-[#3b82f6]')">Proyectos</a>
+      <a href="#experiencia" [class]="'transition-colors ' + (darkMode() ? 'text-white hover:text-[#3b82f6]' : 'text-gray-900 hover:text-[#3b82f6]')">Experiencia</a>
+      <a href="#habilidades" [class]="'transition-colors ' + (darkMode() ? 'text-white hover:text-[#3b82f6]' : 'text-gray-900 hover:text-[#3b82f6]')">Habilidades</a>
+      <a href="#contacto" [class]="'transition-colors ' + (darkMode() ? 'text-white hover:text-[#3b82f6]' : 'text-gray-900 hover:text-[#3b82f6]')">Contacto</a>
+    </nav>
+
+    <div class="hidden md:flex items-center space-x-4">
+      <button (click)="toggleLanguage()" [class]="'transition-colors p-2 ' + (darkMode() ? 'text-white hover:text-[#3b82f6]' : 'text-gray-900 hover:text-[#3b82f6]')" aria-label="Cambiar idioma">
+        <div class="flex items-center">
+          <lucide-angular [img]="GlobeIcon" [size]="18"></lucide-angular>
+          <span class="ml-1 text-sm font-medium">{{ language().toUpperCase() }}</span>
+        </div>
+      </button>
+      <button (click)="toggleDarkMode()" [class]="'transition-colors p-2 ' + (darkMode() ? 'text-white hover:text-[#3b82f6]' : 'text-gray-900 hover:text-[#3b82f6]')" [attr.aria-label]="darkMode() ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro'">
+          @if(darkMode()){
+            <lucide-angular [img]="SunIcon" [size]="18"></lucide-angular>
+          } @else {
+            <lucide-angular [img]="MoonIcon" [size]="18"></lucide-angular>
+          }
+      </button>
+      <div [class]="'h-6 w-px ' + (darkMode() ? 'bg-gray-700' : 'bg-gray-300')"></div>
+      <a href="#" [class]="'transition-colors p-1 ' + (darkMode() ? 'text-white hover:text-[#3b82f6]' : 'text-gray-900 hover:text-[#3b82f6]')" aria-label="GitHub"><lucide-angular [img]="GithubIcon" [size]="18"></lucide-angular></a>
+      <a href="#" [class]="'transition-colors p-1 ' + (darkMode() ? 'text-white hover:text-[#3b82f6]' : 'text-gray-900 hover:text-[#3b82f6]')" aria-label="LinkedIn"><lucide-angular [img]="LinkedinIcon" [size]="18"></lucide-angular></a>
+      <a href="#" [class]="'transition-colors p-1 ' + (darkMode() ? 'text-white hover:text-[#3b82f6]' : 'text-gray-900 hover:text-[#3b82f6]')" aria-label="Email"><lucide-angular [img]="MailIcon" [size]="18"></lucide-angular></a>
+    </div>
+  </div>
+
+  @if (mobileMenuOpen()) {
+    <nav [class]="'md:hidden py-4 transition-colors duration-300 ' + (darkMode() ? 'bg-[#1A1A1A]' : 'bg-white')">
+      <div class="container mx-auto px-4 flex flex-col space-y-4">
+        <a href="#sobre-mi" (click)="toggleMobileMenu()" [class]="'transition-colors ' + (darkMode() ? 'text-white hover:text-[#3b82f6]' : 'text-gray-900 hover:text-[#3b82f6]')">Sobre mí</a>
+        <a href="#proyectos" (click)="toggleMobileMenu()" [class]="'transition-colors ' + (darkMode() ? 'text-white hover:text-[#3b82f6]' : 'text-gray-900 hover:text-[#3b82f6]')">Proyectos</a>
+        <a href="#experiencia" (click)="toggleMobileMenu()" [class]="'transition-colors ' + (darkMode() ? 'text-white hover:text-[#3b82f6]' : 'text-gray-900 hover:text-[#3b82f6]')">Experiencia</a>
+        <a href="#habilidades" (click)="toggleMobileMenu()" [class]="'transition-colors ' + (darkMode() ? 'text-white hover:text-[#3b82f6]' : 'text-gray-900 hover:text-[#3b82f6]')">Habilidades</a>
+        <a href="#contacto" (click)="toggleMobileMenu()" [class]="'transition-colors ' + (darkMode() ? 'text-white hover:text-[#3b82f6]' : 'text-gray-900 hover:text-[#3b82f6]')">Contacto</a>
+        <div [class]="'flex items-center space-x-4 pt-2 border-t ' + (darkMode() ? 'border-gray-800' : 'border-gray-200')">
+            <button (click)="toggleLanguage()" [class]="'transition-colors ' + (darkMode() ? 'text-white hover:text-[#3b82f6]' : 'text-gray-900 hover:text-[#3b82f6]')" >
+              <div class="flex items-center">
+                <lucide-angular [img]="GlobeIcon" [size]="18"></lucide-angular>
+                <span class="ml-1 text-sm">{{ language().toUpperCase() }}</span>
+              </div>
+            </button>
+            <button (click)="toggleDarkMode()" [class]="'transition-colors ' + (darkMode() ? 'text-white hover:text-[#3b82f6]' : 'text-gray-900 hover:text-[#3b82f6]')" >
+              @if(darkMode()){ <lucide-angular [img]="SunIcon" [size]="18"></lucide-angular> } @else { <lucide-angular [img]="MoonIcon" [size]="18"></lucide-angular> }
+            </button>
+            <a href="#" [class]="'transition-colors ' + (darkMode() ? 'text-white hover:text-[#3b82f6]' : 'text-gray-900 hover:text-[#3b82f6]')" ><lucide-angular [img]="GithubIcon" [size]="18"></lucide-angular></a>
+            <a href="#" [class]="'transition-colors ' + (darkMode() ? 'text-white hover:text-[#3b82f6]' : 'text-gray-900 hover:text-[#3b82f6]')" ><lucide-angular [img]="LinkedinIcon" [size]="18"></lucide-angular></a>
+            <a href="#" [class]="'transition-colors ' + (darkMode() ? 'text-white hover:text-[#3b82f6]' : 'text-gray-900 hover:text-[#3b82f6]')" ><lucide-angular [img]="MailIcon" [size]="18"></lucide-angular></a>
+        </div>
+      </div>
+    </nav>
+  }
+</header>
