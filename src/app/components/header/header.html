@@ -15,21 +15,20 @@
     </button>
 
     <nav class="hidden md:flex mx-auto space-x-8">
-      <a (click)="scrollToSection('sobre-mi')" role="link" [class]="'cursor-pointer transition-colors ' + (darkMode() ? 'text-white hover:text-[#3b82f6]' : 'text-gray-900 hover:text-[#3b82f6]')">Sobre mí</a>
-      <a (click)="scrollToSection('proyectos')" role="link" [class]="'cursor-pointer transition-colors ' + (darkMode() ? 'text-white hover:text-[#3b82f6]' : 'text-gray-900 hover:text-[#3b82f6]')">Proyectos</a>
-      <a (click)="scrollToSection('experiencia')" role="link" [class]="'cursor-pointer transition-colors ' + (darkMode() ? 'text-white hover:text-[#3b82f6]' : 'text-gray-900 hover:text-[#3b82f6]')">Experiencia</a>
-      <a (click)="scrollToSection('habilidades')" role="link" [class]="'cursor-pointer transition-colors ' + (darkMode() ? 'text-white hover:text-[#3b82f6]' : 'text-gray-900 hover:text-[#3b82f6]')">Habilidades</a>
-      <a (click)="scrollToSection('contacto')" role="link" [class]="'cursor-pointer transition-colors ' + (darkMode() ? 'text-white hover:text-[#3b82f6]' : 'text-gray-900 hover:text-[#3b82f6]')">Contacto</a>
+      <a (click)="scrollToSection('sobre-mi')" role="link" [class]="'cursor-pointer transition-colors ' + (darkMode() ? 'text-white hover:text-[#3b82f6]' : 'text-gray-900 hover:text-[#3b82f6]')">{{ 'header.about_me' | translate }}</a>
+      <a (click)="scrollToSection('proyectos')" role="link" [class]="'cursor-pointer transition-colors ' + (darkMode() ? 'text-white hover:text-[#3b82f6]' : 'text-gray-900 hover:text-[#3b82f6]')">{{ 'header.projects' | translate }}</a>
+      <a (click)="scrollToSection('experiencia')" role="link" [class]="'cursor-pointer transition-colors ' + (darkMode() ? 'text-white hover:text-[#3b82f6]' : 'text-gray-900 hover:text-[#3b82f6]')">{{ 'header.experience' | translate }}</a>
+      <a (click)="scrollToSection('habilidades')" role="link" [class]="'cursor-pointer transition-colors ' + (darkMode() ? 'text-white hover:text-[#3b82f6]' : 'text-gray-900 hover:text-[#3b82f6]')">{{ 'header.skills' | translate }}</a>
+      <a (click)="scrollToSection('contacto')" role="link" [class]="'cursor-pointer transition-colors ' + (darkMode() ? 'text-white hover:text-[#3b82f6]' : 'text-gray-900 hover:text-[#3b82f6]')">{{ 'header.contact' | translate }}</a>
     </nav>
 
     <div class="hidden md:flex items-center space-x-4">
-      <button (click)="toggleLanguage()" [class]="'transition-colors p-2 ' + (darkMode() ? 'text-white hover:text-[#3b82f6]' : 'text-gray-900 hover:text-[#3b82f6]')" aria-label="Cambiar idioma">
+      <button (click)="toggleLanguage()" [class]="'transition-colors p-2 ' + (darkMode() ? 'text-white hover:text-[#3b82f6]' : 'text-gray-900 hover:text-[#3b82f6]')" [attr.aria-label]="'header.change_language' | translate">
         <div class="flex items-center">
           <lucide-angular [img]="GlobeIcon" [size]="18"></lucide-angular>
-          <span class="ml-1 text-sm font-medium">{{ language().toUpperCase() }}</span>
-        </div>
+          <span class="ml-1 text-sm font-medium">{{ currentLanguage().toUpperCase() }}</span> </div>
       </button>
-      <button (click)="toggleDarkMode()" [class]="'transition-colors p-2 ' + (darkMode() ? 'text-white hover:text-[#3b82f6]' : 'text-gray-900 hover:text-[#3b82f6]')" [attr.aria-label]="darkMode() ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro'">
+      <button (click)="toggleDarkMode()" [class]="'transition-colors p-2 ' + (darkMode() ? 'text-white hover:text-[#3b82f6]' : 'text-gray-900 hover:text-[#3b82f6]')" [attr.aria-label]="(darkMode() ? 'header.change_to_light_mode' : 'header.change_to_dark_mode') | translate">
           @if(darkMode()){
             <lucide-angular [img]="SunIcon" [size]="18"></lucide-angular>
           } @else {
@@ -46,17 +45,17 @@
   @if (mobileMenuOpen()) {
     <nav [class]="'md:hidden py-4 transition-colors duration-300 ' + (darkMode() ? 'bg-[#1A1A1A]' : 'bg-white')">
       <div class="container mx-auto px-4 flex flex-col space-y-4">
-        <a (click)="scrollToSection('sobre-mi')" role="link" [class]="'cursor-pointer transition-colors ' + (darkMode() ? 'text-white hover:text-[#3b82f6]' : 'text-gray-900 hover:text-[#3b82f6]')">Sobre mí</a>
-        <a (click)="scrollToSection('proyectos')" role="link" [class]="'cursor-pointer transition-colors ' + (darkMode() ? 'text-white hover:text-[#3b82f6]' : 'text-gray-900 hover:text-[#3b82f6]')">Proyectos</a>
-        <a (click)="scrollToSection('experiencia')" role="link" [class]="'cursor-pointer transition-colors ' + (darkMode() ? 'text-white hover:text-[#3b82f6]' : 'text-gray-900 hover:text-[#3b82f6]')">Experiencia</a>
-        <a (click)="scrollToSection('habilidades')" role="link" [class]="'cursor-pointer transition-colors ' + (darkMode() ? 'text-white hover:text-[#3b82f6]' : 'text-gray-900 hover:text-[#3b82f6]')">Habilidades</a>
-        <a (click)="scrollToSection('contacto')" role="link" [class]="'cursor-pointer transition-colors ' + (darkMode() ? 'text-white hover:text-[#3b82f6]' : 'text-gray-900 hover:text-[#3b82f6]')">Contacto</a>
+        <a (click)="scrollToSection('sobre-mi')" role="link" [class]="'cursor-pointer transition-colors ' + (darkMode() ? 'text-white hover:text-[#3b82f6]' : 'text-gray-900 hover:text-[#3b82f6]')">{{ 'header.about_me' | translate }}</a>
+        <a (click)="scrollToSection('proyectos')" role="link" [class]="'cursor-pointer transition-colors ' + (darkMode() ? 'text-white hover:text-[#3b82f6]' : 'text-gray-900 hover:text-[#3b82f6]')">{{ 'header.projects' | translate }}</a>
+        <a (click)="scrollToSection('experiencia')" role="link" [class]="'cursor-pointer transition-colors ' + (darkMode() ? 'text-white hover:text-[#3b82f6]' : 'text-gray-900 hover:text-[#3b82f6]')">{{ 'header.experience' | translate }}</a>
+        <a (click)="scrollToSection('habilidades')" role="link" [class]="'cursor-pointer transition-colors ' + (darkMode() ? 'text-white hover:text-[#3b82f6]' : 'text-gray-900 hover:text-[#3b82f6]')">{{ 'header.skills' | translate }}</a>
+        <a (click)="scrollToSection('contacto')" role="link" [class]="'cursor-pointer transition-colors ' + (darkMode() ? 'text-white hover:text-[#3b82f6]' : 'text-gray-900 hover:text-[#3b82f6]')">{{ 'header.contact' | translate }}</a>
         
         <div [class]="'flex items-center space-x-4 pt-2 border-t ' + (darkMode() ? 'border-gray-800' : 'border-gray-200')">
             <button (click)="toggleLanguage()" [class]="'transition-colors ' + (darkMode() ? 'text-white hover:text-[#3b82f6]' : 'text-gray-900 hover:text-[#3b82f6]')" >
               <div class="flex items-center">
                 <lucide-angular [img]="GlobeIcon" [size]="18"></lucide-angular>
-                <span class="ml-1 text-sm">{{ language().toUpperCase() }}</span>
+                <span class="ml-1 text-sm">{{ currentLanguage().toUpperCase() }}</span>
               </div>
             </button>
             <button (click)="toggleDarkMode()" [class]="'transition-colors ' + (darkMode() ? 'text-white hover:text-[#3b82f6]' : 'text-gray-900 hover:text-[#3b82f6]')" >

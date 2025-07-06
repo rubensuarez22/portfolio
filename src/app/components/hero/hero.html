@@ -1,33 +1,36 @@
-<section id="sobre-mi" [class]="'relative pt-32 pb-20 overflow-hidden ' + (darkMode() ? 'bg-gray-950' : 'bg-gray-50') + ' transition-colors duration-300'">
+<section
+  id="sobre-mi"
+  [class]="'relative pt-32 pb-20 overflow-hidden ' + (darkMode() ? 'bg-gray-950' : 'bg-gray-50') + ' transition-colors duration-300'"
+>
   <div appStarsBackground class="absolute inset-0 z-0 pointer-events-none"></div>
 
   <div class="container mx-auto px-4 relative z-10">
     <div class="max-w-3xl mx-auto text-center">
       <div [class]="'mb-2 text-lg ' + (darkMode() ? 'text-white' : 'text-gray-700')">
-        Hola 👋, soy
+        {{ 'hero.greeting' | translate }}
       </div>
       <h1 class="text-5xl md:text-7xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-[#3b82f6] to-[#1e40af]">
         Ruben Suarez
       </h1>
       <h2 [class]="'text-xl md:text-2xl mb-6 ' + (darkMode() ? 'text-white' : 'text-gray-900')">
-        Software Developer
+        {{ 'hero.developer_role' | translate }}
       </h2>
       <div class="flex items-center justify-center mb-8">
         <lucide-angular [img]="MapPinIcon" [size]="16" class="mr-2 text-[#3b82f6]"></lucide-angular>
         <span [class]="darkMode() ? 'text-white' : 'text-gray-900'">
-          Cholula, Puebla, México
+          {{ 'hero.location' | translate }}
         </span>
       </div>
       <p [class]="'mb-8 max-w-2xl mx-auto ' + (darkMode() ? 'text-white' : 'text-gray-700')">
-        Desarrollador de software apasionado por crear soluciones elegantes a problemas complejos. Especializado en desarrollo web con Angular, TypeScript y Node.js.
+        {{ 'hero.description' | translate }}
       </p>
       <div class="flex flex-wrap justify-center gap-4 mb-8">
         <a href="#contacto" class="px-6 py-3 bg-[#3b82f6] text-white rounded-md font-medium hover:bg-[#2563eb] transition-colors">
-          Contáctame
+          {{ 'hero.contact_me' | translate }}
         </a>
         <button (click)="downloadCV()" [class]="'px-6 py-3 rounded-md font-medium border transition-colors flex items-center cursor-pointer ' + (darkMode() ? 'bg-[#1A1A1A] border-gray-700 hover:bg-gray-800 text-white' : 'bg-white border-gray-300 hover:bg-gray-100 text-gray-900')">
-          <lucide-angular [img]="FileTextIcon" [size]="18" class="mr-2"></lucide-angular>
-          Descargar CV
+          <lucide-angular [img]="FileTextIcon" [size]="18"></lucide-angular>
+          {{ 'hero.download_cv' | translate }}
         </button>
       </div>
       <div class="flex justify-center space-x-6">

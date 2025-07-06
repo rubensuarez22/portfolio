@@ -4,12 +4,17 @@ import { StarsBackgroundDirective } from '../../directives/stars-background';
 // Importamos el MÓDULO y los OBJETOS de los íconos
 import { LucideAngularModule, MapPinIcon, FileTextIcon, GithubIcon, LinkedinIcon, MailIcon } from 'lucide-angular';
 import { HttpClient } from '@angular/common/http';
+import { TranslatePipe } from '../../pipes/translate-pipe';
+import { NgClass } from '@angular/common';
+
 @Component({
   selector: 'app-hero',
   standalone: true,
   imports: [
     StarsBackgroundDirective, // La directiva que creamos
-    LucideAngularModule     // El módulo de íconos, igual que en el Header
+    LucideAngularModule,     // El módulo de íconos, igual que en el Header
+    TranslatePipe,
+    NgClass
   ],
   templateUrl: './hero.html',
   styleUrl: './hero.css',
