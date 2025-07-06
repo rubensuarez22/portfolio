@@ -39,7 +39,6 @@ export class Hero {
       // Crea una URL temporal para el blob
       const url = window.URL.createObjectURL(blob);
       
-      // Crea un enlace <a> temporal en la memoria
       const a = document.createElement('a');
       a.href = url;
       a.download = 'CVRubenSuarez.pdf'; // El nombre que tendrá el archivo descargado
