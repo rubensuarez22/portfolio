@@ -6,12 +6,12 @@
     appScrollFadeIn (elementVisible)="onSectionVisible($event)"
     [@fadeAnimation]="sectionVisible() ? 'visible' : 'void'"
   >
-    <div class="container mx-auto px-4">
+<div class="container mx-auto px-4">
       <h2 [class]="'text-3xl md:text-4xl font-bold mb-6 ' + (darkMode() ? 'text-white' : 'text-gray-900')">
-        Tecnologías
+        {{ 'skills.title' | translate }}
       </h2>
       <p [class]="'mb-12 max-w-3xl ' + (darkMode() ? 'text-white' : 'text-gray-700')">
-        Soy proficiente en una variedad de tecnologías modernas que me permiten construir soluciones funcionales y robustas. Estas son algunas de mis principales tecnologías.
+        {{ 'skills.description' | translate }}
       </p>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
@@ -19,19 +19,18 @@
           <div [class]="'flex items-center p-4 rounded-lg border transition-transform hover:scale-[1.02] ' + (darkMode() ? 'border-gray-800 bg-[#1A1A1A]' : 'border-gray-200 bg-white')">
             
             <div [class]="'w-12 h-12 flex items-center justify-center mr-4 rounded-md p-2 ' + (darkMode() ? 'bg-gray-900' : 'bg-gray-100')">
-              <img [src]="skill.icon" [alt]="skill.name" class="w-8 h-8 object-contain" />
+              <img [src]="skill.icon" [alt]="skill.name | translate" class="w-8 h-8 object-contain" />
             </div>
 
             <div>
               <h3 class="font-semibold" [class]="skill.textColor">
-                {{ skill.name }}
-              </h3>
+                {{ skill.name | translate }} </h3>
               <p [class]="'text-sm ' + (darkMode() ? 'text-white' : 'text-gray-700')">
-                {{ skill.description }}
-              </p>
+                {{ skill.descriptionKey | translate }} </p>
             </div>
           </div>
         }
       </div>
     </div>
-  </div> </section>
+  </div>
+</section>

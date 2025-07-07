@@ -1,57 +1,153 @@
-<section 
-  id="experiencia" 
-  [class]="'py-20 ' + (darkMode() ? 'bg-gray-950' : 'bg-gray-50') + ' transition-colors duration-300'">
-  
-  <div
-    appScrollFadeIn (elementVisible)="onSectionVisible($event)"
-    [@fadeAnimation]="sectionVisible() ? 'visible' : 'void'"
-  >
+<!-- src/app/components/experience/experience.html -->
+
+<section id="experiencia" [class]="'py-20 ' + (darkMode() ? 'bg-gray-950' : 'bg-gray-50') + ' transition-colors duration-300'">
+  <div appScrollFadeIn (elementVisible)="onSectionVisible($event)" [@fadeAnimation]="sectionVisible() ? 'visible' : 'void'">
     <div class="container mx-auto px-4">
       <h2 [class]="'text-3xl md:text-4xl font-bold mb-12 ' + (darkMode() ? 'text-white' : 'text-gray-900')">
-        Experiencia
+        {{ 'experience.title' | translate }}
       </h2>
 
       <div class="mb-8">
         <div [class]="'inline-flex p-1 rounded-lg ' + (darkMode() ? 'bg-[#1A1A1A]' : 'bg-white')">
           <button 
-            (click)="activeTab.set('work')"
-            [class]="'px-6 py-2 rounded-md transition-colors ' + (activeTab() === 'work' ? 'bg-[#3b82f6] text-white' : (darkMode() ? 'text-white hover:text-[#3b82f6]' : 'text-gray-900 hover:text-[#3b82f6]'))">
-            Trabajo
+            (click)="activeTab.set('relevant')"
+            [class]="'px-6 py-2 rounded-md transition-colors ' + (activeTab() === 'relevant' ? 'bg-[#3b82f6] text-white' : (darkMode() ? 'text-white hover:text-[#3b82f6]' : 'text-gray-900 hover:text-[#3b82f6]'))">
+            {{ 'experience.relevant_experience_tab' | translate }}
           </button>
           <button 
             (click)="activeTab.set('education')"
             [class]="'px-6 py-2 rounded-md transition-colors ' + (activeTab() === 'education' ? 'bg-[#3b82f6] text-white' : (darkMode() ? 'text-white hover:text-[#3b82f6]' : 'text-gray-900 hover:text-[#3b82f6]'))">
-            Estudios
+            {{ 'experience.education_tab' | translate }}
           </button>
         </div>
       </div>
 
       <div [class]="'relative border-l ml-6 pl-8 pb-8 ' + (darkMode() ? 'border-gray-700' : 'border-gray-300')">
-        @if (activeTab() === 'work') {
-          @for (item of workExperience; track item.id) {
+        @if (activeTab() === 'relevant') {
+          @for (item of relevantExperience; track item.id) {
             <div class="mb-12 relative">
-              <div [class]="'absolute -left-[3.3rem] mt-1.5 w-8 h-8 rounded-full border-4 flex items-center justify-center ' + (darkMode() ? 'bg-[#1A1A1A] border-gray-950' : 'bg-white border-gray-50')">
-                <img [src]="item.logo" [alt]="item.company" class="w-6 h-6 rounded-full" />
-              </div>
-              <div class="text-sm text-[#3b82f6] mb-1">{{ item.period }}</div>
-              <h3 [class]="'text-xl font-bold mb-1 ' + (darkMode() ? 'text-white' : 'text-gray-900')">{{ item.company }}</h3>
-              <div [class]="'text-lg mb-2 ' + (darkMode() ? 'text-white' : 'text-gray-900')">{{ item.role }}</div>
-              <p [class]="darkMode() ? 'text-white' : 'text-gray-700'">{{ item.description }}</p>
+              <!-- Solo si hay imágenes para mostrar, se hace clicable -->
+              @if (item.images && item.images.length > 0) {
+                <div (click)="openImageModal(item.images)"
+                     [class]="'absolute -left-[4rem] mt-1.5 w-15 h-15 rounded-full border-3 flex items-center justify-center border-[#3b82f6] ' + (darkMode() ? 'bg-[#1A1A1A]' : 'bg-white') + ' cursor-pointer'">
+                  <img [src]="item.logo" [alt]="item.companyKey | translate" class="w-13 h-13 rounded-full" />
+                </div>
+              } @else {
+                <!-- Si no hay imágenes, no es clicable -->
+                <div [class]="'absolute -left-[4rem] mt-1.5 w-13 h-13 rounded-full border-4 flex items-center justify-center border-[#3b82f6] ' + (darkMode() ? 'bg-[#1A1A1A]' : 'bg-white')">
+                  <img [src]="item.logo" [alt]="item.companyKey | translate" class="w-8 h-8 rounded-full" />
+                </div>
+              }
+              
+              <div class="text-sm text-[#3b82f6] mb-1">{{ item.periodKey | translate }}</div>
+              <!-- Solo si hay imágenes para mostrar, se hace clicable -->
+              @if (item.images && item.images.length > 0) {
+                <h3 (click)="openImageModal(item.images)"
+                    [class]="'text-xl font-bold mb-1 cursor-pointer ' + (darkMode() ? 'text-white hover:text-[#3b82f6]' : 'text-gray-900 hover:text-[#3b82f6]')">
+                  {{ item.companyKey | translate }}
+                </h3>
+              } @else {
+                <!-- Si no hay imágenes, no es clicable -->
+                <h3 [class]="'text-xl font-bold mb-1 ' + (darkMode() ? 'text-white' : 'text-gray-900')">
+                  {{ item.companyKey | translate }}
+                </h3>
+              }
+              
+                            <div [class]="'text-lg mb-2 ' + (darkMode() ? 'text-white' : 'text-gray-900')">{{ item.roleKey | translate }}</div>
+              
+              <!-- ¡CAMBIO AQUÍ! Añadir UL y LI para las descripciones -->
+              <ul [class]="'list-disc ' + (darkMode() ? 'text-white' : 'text-gray-700')">
+                @for (descKey of item.descriptionKeys; track $index) {
+                  <li class="mb-1 ml-4">{{ descKey | translate }}</li>
+                }
+              </ul>
             </div>
           }
         } @else {
           @for (item of education; track item.id) {
             <div class="mb-12 relative">
-              <div [class]="'absolute -left-[3.3rem] mt-1.5 w-8 h-8 rounded-full border-4 flex items-center justify-center ' + (darkMode() ? 'bg-[#1A1A1A] border-gray-950' : 'bg-white border-gray-50')">
-                <img [src]="item.logo" [alt]="item.institution" class="w-6 h-6 rounded-full" />
-              </div>
-              <div class="text-sm text-[#3b82f6] mb-1">{{ item.period }}</div>
-              <h3 [class]="'text-xl font-bold mb-1 ' + (darkMode() ? 'text-white' : 'text-gray-900')">{{ item.institution }}</h3>
-              <div [class]="'text-lg mb-2 ' + (darkMode() ? 'text-white' : 'text-gray-900')">{{ item.degree }}</div>
-              <p [class]="darkMode() ? 'text-white' : 'text-gray-700'">{{ item.description }}</p>
+              @if (item.images && item.images.length > 0) {
+                <div (click)="openImageModal(item.images)"
+                     [class]="'absolute -left-[3.8rem] mt-1.5 w-10 h-10 rounded-full border-4 flex items-center justify-center border-[#3b82f6] ' + (darkMode() ? 'bg-[#1A1A1A]' : 'bg-white') + ' cursor-pointer'">
+                  <img [src]="item.logo" [alt]="item.institutionKey | translate" class="w-8 h-8 rounded-full" />
+                </div>
+              } @else {
+                <div [class]="'absolute -left-[3.8rem] mt-1.5 w-10 h-10 rounded-full border-4 flex items-center justify-center border-[#3b82f6] ' + (darkMode() ? 'bg-[#1A1A1A]' : 'bg-white')">
+                  <img [src]="item.logo" [alt]="item.institutionKey | translate" class="w-8 h-8 rounded-full" />
+                </div>
+              }
+              
+              <div class="text-sm text-[#3b82f6] mb-1">{{ item.periodKey | translate }}</div>
+              @if (item.images && item.images.length > 0) {
+                <h3 (click)="openImageModal(item.images)"
+                    [class]="'text-xl font-bold mb-1 cursor-pointer ' + (darkMode() ? 'text-white hover:text-[#3b82f6]' : 'text-gray-900 hover:text-[#3b82f6]')">
+                  {{ item.institutionKey | translate }}
+                </h3>
+              } @else {
+                <h3 [class]="'text-xl font-bold mb-1 ' + (darkMode() ? 'text-white' : 'text-gray-900')">
+                  {{ item.institutionKey | translate }}
+                </h3>
+              }
+              
+              <div [class]="'text-lg mb-2 ' + (darkMode() ? 'text-white' : 'text-gray-900')">{{ item.degreeKey | translate }}</div>
+              <!-- ¡CAMBIO AQUÍ! Añadir UL y LI para la descripción (si es un array de descripciones) -->
+              <!-- Para educación, como solo tienes una descriptionKey, lo mantendremos como párrafo si no quieres viñeta -->
+              <!-- Si quieres viñeta para educación también, cambia la p por ul/li -->
+              <p [class]="darkMode() ? 'text-white' : 'text-gray-700'">{{ item.descriptionKey | translate }}</p>
             </div>
           }
         }
       </div>
     </div>
-  </div> </section>
+  </div>
+
+  <!-- ¡MODAL/LIGHTBOX ACTUALIZADO PARA CARRUSEL! -->
+  @if (isModalOpen()) {
+    <div [@modalAnimation]
+         [class]="'fixed inset-0 z-[100] flex items-center justify-center p-4 ' + (darkMode() ? 'bg-black/80' : 'bg-black/60')">
+      
+      <!-- Contenedor del modal -->
+      <div [class]="'relative max-w-3xl w-full mx-auto rounded-lg shadow-2xl overflow-hidden ' + (darkMode() ? 'bg-gray-900' : 'bg-white')">
+        
+        <!-- Botón de cerrar -->
+        <button (click)="closeImageModal()"
+                [class]="'absolute top-4 right-4 p-2 rounded-full ' + (darkMode() ? 'bg-gray-800 text-white hover:bg-gray-700' : 'bg-gray-100 text-gray-700 hover:bg-gray-200') + ' transition-colors cursor-pointer z-10'">
+          <lucide-angular [img]="XIcon" [size]="24"></lucide-angular>
+        </button>
+
+        <!-- Contenedor de la imagen y botones de navegación -->
+        <div class="relative flex items-center justify-center">
+          <!-- Botón Anterior -->
+          @if (selectedModalImages().length > 1) {
+            <button (click)="prevImage()"
+                    [class]="'absolute left-4 z-10 p-2 rounded-full ' + (darkMode() ? 'bg-gray-800 text-white hover:bg-gray-700' : 'bg-gray-100 text-gray-700 hover:bg-gray-200') + ' transition-colors cursor-pointer'">
+              <lucide-angular [img]="ChevronLeftIcon" [size]="24"></lucide-angular>
+            </button>
+          }
+
+          <!-- Imagen Actual -->
+          @if (selectedModalImages().length > 0) {
+            <img [src]="selectedModalImages()[currentImageIndex()]" 
+                 alt="Imagen de experiencia" 
+                 class="w-full h-auto max-h-[80vh] object-contain">
+          }
+
+          <!-- Botón Siguiente -->
+          @if (selectedModalImages().length > 1) {
+            <button (click)="nextImage()"
+                    [class]="'absolute right-4 z-10 p-2 rounded-full ' + (darkMode() ? 'bg-gray-800 text-white hover:bg-gray-700' : 'bg-gray-100 text-gray-700 hover:bg-gray-200') + ' transition-colors cursor-pointer'">
+              <lucide-angular [img]="ChevronRightIcon" [size]="24"></lucide-angular>
+            </button>
+          }
+        </div>
+
+        <!-- Contador de imágenes -->
+        @if (selectedModalImages().length > 1) {
+          <div [class]="'absolute bottom-4 left-1/2 -translate-x-1/2 text-sm font-medium px-3 py-1 rounded-full ' + (darkMode() ? 'bg-gray-800 text-white' : 'bg-gray-100 text-gray-700')">
+            {{ currentImageIndex() + 1 }} / {{ selectedModalImages().length }}
+          </div>
+        }
+      </div>
+    </div>
+  }
+</section>

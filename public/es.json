@@ -10,7 +10,7 @@
   "header.change_to_dark_mode": "Cambiar a modo oscuro",
 
   "hero.greeting": "Hola 👋, soy",
-  "hero.developer_role": "Computer Systems Engineer",
+  "hero.developer_role": "Ingeniero en Sistemas Computacionales",
   "hero.location": "México 🇲🇽",
   "hero.description": "Soy un desarrollador de software enfocado en transformar ideas en soluciones digitales. Construyo aplicaciones funcionales y eficientes para web y móvil.",
   "hero.contact_me": "Contáctame",
@@ -50,9 +50,10 @@
   "projects.vending_machine_logic.description": "Diseñé la lógica de control de una máquina expendedora en la placa FPGA Basys 3 usando VHDL y desarrollé circuitos digitales para procesar monedas y dispensar productos, logrando una alta tasa de éxito en simulaciones.",
 
 
-  "experience.title": "Experiencia",
-  "experience.work_tab": "Trabajo",
-  "experience.education_tab": "Estudios",
+"experience.title": "Desarrollo y Formación",
+  "experience.relevant_experience_tab": "Experiencia Relevante", 
+  "experience.education_tab": "Educación",
+
   "experience.halliburton.company": "Halliburton - Landmark Software & Services",
   "experience.halliburton.location": "Villahermosa, México",
   "experience.halliburton.role": "Desarrollador web en prácticas (Prácticas profesionales)",
@@ -60,20 +61,40 @@
   "experience.halliburton.desc1": "Experiencia y certificación en Angular: Completé un curso intensivo de Angular en Udemy y obtuve la certificación correspondiente, estableciendo una sólida base técnica que impulsó el desarrollo de aplicaciones web innovadoras.",
   "experience.halliburton.desc2": "Creación de tableros de control para la eficiencia de costes: Desarrollé tableros dinámicos para supervisar y analizar el tiempo no productivo (TNP), respaldando estrategias basadas en datos para reducir costes operativos.",
   "experience.halliburton.desc3": "Metodologías ágiles: Empleé prácticas ágiles para ofrecer soluciones escalables y de alta calidad alineadas con los objetivos estratégicos de Landmark Software & Services.",
-  "experience.enactus_hackathon.company": "ENACTUS Changemakers Hackathon 2025",
+
+  "experience.enactus_hackathon.company": "ENACTUS National Changemakers iOS Hackathon 2025",
   "experience.enactus_hackathon.period": "Mayo 2025",
+  "experience.enactus_hackathon.role": "Desarrollador de Aplicación Móvil (2º Lugar)", 
   "experience.enactus_hackathon.desc1": "Desarrollé la aplicación \"STEMify\" en Swift para iOS: una solución inclusiva que orienta a jóvenes indecisos hacia carreras STEM mediante curiosidad guiada, gamificación e inspiración en modelos a seguir; reconocida con el segundo lugar en el reto a la mejor solución propuesto por la empresa Bosch.",
   "experience.enactus_hackathon.desc2": "Arquitectura educativa escalable: Implementé geolocalización con CoreLocation y MapKit, scraping web de universidades, integración con Firestore y flujos personalizados; destacada por su impacto social, accesibilidad y enfoque UX centrado en la exploración vocacional.",
-  "experience.enactus_challenge.company": "ENACTUS Changemakers Social Challenge 2024",
+
+  "experience.enactus_challenge.company": "ENACTUS National Changemakers Social Challenge iOS 2024",
   "experience.enactus_challenge.period": "Noviembre 2024",
+  "experience.enactus_challenge.role": "Desarrollador de Aplicación Móvil (3º Lugar)", 
   "experience.enactus_challenge.desc1": "Desarrollo de la aplicación \"Cultivo Sano\" en Swift para iOS: Lideré el desarrollo de una aplicación que empodera a las comunidades rurales mediante visión artificial para la detección temprana de enfermedades de las plantas; proyecto alineado con los ODS y premiado en el podio del desafío.",
   "experience.enactus_challenge.desc2": "Eficacia diagnóstica: Entrené un modelo de detección robusto con más de 10.000 imágenes de plantas, alcanzando un 87% de precisión y reduciendo el tiempo de diagnóstico en un 60% frente a métodos tradicionales.",
 
+  "experience.lifi_hackathon.company": "Hackathon iOS Development Lab Local UDLAP 2025",
+  "experience.lifi_hackathon.period": "Abril 2025",
+  "experience.lifi_hackathon.role": "Desarrollador de Aplicación Móvil (1º Lugar)",
+  "experience.lifi_hackathon.desc1": "Ganador del primer lugar en el Hackathon UDLAP 2025 con la aplicación 'Lifi', diseñada para localizar e identificar flora invasora en México. Este logro nos permitió participar en el Hackathon Nacional de Enactus en Guadalajara, México 🇲🇽.",
+  "experience.lifi_hackathon.desc2": "Desarrollé funcionalidades clave para la identificación de especies mediante visión por computadora y la visualización de datos geolocalizados, contribuyendo a una solución innovadora para un problema ambiental.",
+
+
+
+  "education.udlap.period": "Agosto 2021 - Junio 2025", 
   "education.udlap.institution": "Universidad de las Américas Puebla (UDLAP)",
   "education.udlap.degree": "Licenciatura en Ingeniería en Sistemas Computacionales",
-  "education.udlap.period": "Graduación en junio de 2025",
   "education.udlap.average": "Promedio: 9.4",
   "education.udlap.relevant_courses": "Cursos relevantes: Desarrollo de aplicaciones móviles, Ingeniería de software, Inteligencia artificial, UX, HCI, Aprendizaje de máquina, Visión artificial, Bases de datos avanzadas.",
+
+
+  "education.cervantes.institution": "Colegio Cervantes Ecuador",
+  "education.cervantes.degree": "Bachillerato en Ciencias",
+  "education.cervantes.period": "Septiembre 2017 - Julio 2020", 
+  "education.cervantes.description": "Estudios de bachillerato con enfoque en ciencias, proporcionando una sólida base académica para la educación superior.",
+
+
 
 
   "skills.title": "Tecnologías",
@@ -105,6 +126,27 @@
   "skills.other.spanish": "Español (nativo)",
   "skills.other.english": "Inglés (fluido)",
   "skills.other.german": "Alemán (básico)",
+    "skills.lang.swift_description": "Lenguaje de programación para iOS/macOS.",
+  "skills.lang.kotlin_description": "Lenguaje moderno para Android y desarrollo backend.",
+  "skills.lang.dart_description": "Lenguaje de programación para Flutter.",
+  "skills.lang.java_description": "Lenguaje de programación versátil.",
+  "skills.lang.python_description": "Lenguaje popular para desarrollo web y ML.",
+  "skills.lang.angular_description": "Framework para aplicaciones frontend robustas.",
+  "skills.lang.javascript_description": "Lenguaje fundamental para la web.",
+  "skills.lang.cpp_description": "Lenguaje potente para sistemas y juegos.",
+  "skills.lang.sql_description": "Lenguaje para bases de datos relacionales.",
+  "skills.lang.arduino_description": "Plataforma de prototipado electrónico.",
+  "skills.lang.vhdl_description": "Lenguaje para diseño de hardware.",
+  "skills.lang.html_description": "Estructura de contenido web.",
+  "skills.lang.css_description": "Estilizado de páginas web.",
+  "skills.lang.lua_description": "Lenguaje ligero y extensible.",
+  "skills.lang.latex_description": "Sistema de preparación de documentos.",
+  "skills.tool.vscode_description": "Editor de código fuente ligero pero potente.",
+  "skills.tool.xcode_description": "IDE para desarrollo Apple.",
+  "skills.tool.visual_studio_community_description": "IDE para desarrollo .NET y C++.",
+  "skills.tool.git_github_description": "Control de versiones y plataforma de colaboración.",
+  "skills.tool.arduino_ide_description": "Entorno de desarrollo para Arduino.",
+  "skills.tool.excel_description": "Hoja de cálculo y análisis de datos.",
 
 
   "contact.cta": "¿Interesado en trabajar juntos?",
