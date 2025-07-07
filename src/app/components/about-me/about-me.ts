@@ -14,11 +14,13 @@ import {
 
 // Importa la directiva de detección de scroll (ajusta la ruta si es diferente)
 import { ScrollFadeInDirective } from '../../directives/scroll-fade-in';
+import { TranslatePipe } from '../../pipes/translate-pipe';
 @Component({
   selector: 'app-about-me',
   standalone: true,
   imports: [
-    ScrollFadeInDirective // <-- Añade la directiva a los imports
+    ScrollFadeInDirective,
+    TranslatePipe // <-- Añade la directiva a los imports
   ],
   templateUrl: './about-me.html',
   styleUrl: './about-me.css',

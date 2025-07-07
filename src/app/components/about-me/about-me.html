@@ -1,3 +1,4 @@
+<!-- src/app/components/about-me/about-me.html -->
 <section 
   id="sobre-mi-detalle" 
   [class]="'py-20 ' + (darkMode() ? 'bg-gray-950' : 'bg-gray-50') + ' transition-colors duration-300'">
@@ -17,33 +18,29 @@
           </span>
         </div>
         <h2 [class]="'text-3xl md:text-4xl font-bold ' + (darkMode() ? 'text-white' : 'text-gray-900')">
-          Sobre mí
+          {{ 'about_me.title' | translate }}
         </h2>
       </div>
 
       <div class="flex flex-col md:flex-row gap-12 items-center">
         <div class="w-full md:w-2/3">
-          <p [class]="'text-lg mb-6 ' + (darkMode() ? 'text-white' : 'text-gray-700')">
-            Me llamo Miguel Ángel pero mis amigos me llaman midu. Empezé en la programación con un Amstrad, tenía 10 años. Actualmente estoy 
-            <span class="text-[#3b82f6] font-semibold">liderando equipos de desarrollo en multinacionales</span>.
+          <p [class]="'text-lg mb-6 ' + (darkMode() ? 'text-white' : 'text-gray-700')"
+             [innerHTML]="'about_me.p1' | translate:{university: '<span class=\'text-[#3b82f6] font-semibold\'>' + ('about_me.highlight1_p1' | translate) + '</span>'}">
           </p>
-          <p [class]="'text-lg mb-6 ' + (darkMode() ? 'text-white' : 'text-gray-700')">
-            Algunos de mis éxitos incluyen 
-            <span class="text-[#3b82f6] font-semibold">colaborar con Mozilla para el desarrollo de las primeras apps en su sistema FirefoxOS</span>. 
-            Aunque hoy está desaparecido fue un gran avance en el mundo del desarrollo web.
+          <p [class]="'text-lg mb-6 ' + (darkMode() ? 'text-white' : 'text-gray-700')"
+             [innerHTML]="'about_me.p2' | translate:{core_tech_stack: '<span class=\'text-[#3b82f6] font-semibold\'>' + ('about_me.highlight1_p2' | translate) + '</span>'}">
           </p>
-          <p [class]="'text-lg mb-6 ' + (darkMode() ? 'text-white' : 'text-gray-700')">
-            Como creador de contenido, 
-            <span class="text-[#3b82f6] font-semibold">cuento con el canal de habla hispana más visto del mundo en la categoría de Software & Game Development</span> 
-            en Twitch. Mi objetivo es mejorar la empleabilidad de la comunidad hispana y el acceso a contenido de calidad.
+          <p [class]="'text-lg mb-6 ' + (darkMode() ? 'text-white' : 'text-gray-700')"
+             [innerHTML]="'about_me.p3' | translate:{leading_dev_goal: '<span class=\'text-[#3b82f6] font-semibold\'>' + ('about_me.highlight1_p3' | translate) + '</span>'}">
           </p>
         </div>
 
         <div class="w-full md:w-1/3">
           <div [class]="'rounded-2xl overflow-hidden border-4 ' + (darkMode() ? 'border-[#1A1A1A]' : 'border-white shadow-lg')">
-            <img src="https://uploadthingy.s3.us-west-1.amazonaws.com/nBXSwuvPuM3Y7j2sJgteSD/Captura_de_pantalla_2025-07-05_a_la%28s%29_7.21.37_p.m..png" alt="Foto de Perfil" class="w-full h-auto" />
+            <img src="https://static.vecteezy.com/system/resources/thumbnails/035/676/746/small_2x/ai-generated-programmer-analyzing-data-in-night-office-with-multiple-computers-free-photo.jpg" alt="Foto de Perfil de Rubén Suárez" class="w-full h-auto" />
           </div>
         </div>
       </div>
     </div>
-  </div> </section>
+  </div>
+</section>

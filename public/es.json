@@ -16,11 +16,15 @@
   "hero.contact_me": "Contáctame",
   "hero.download_cv": "Descargar CV",
 
-  "about_me.title": "Sobre mí",
-  "about_me.p1": "Hola, soy Rubén Suárez Díaz. Soy un **Ingeniero en Sistemas Computacionales** recién egresado de la {{university}}. Mi pasión es **aprovechar la tecnología para crear soluciones innovadoras que mejoren la vida cotidiana**.",
+"about_me.title": "Sobre mí",
+  "about_me.p1": "Hola, soy Rubén Suárez Díaz, Ingeniero en Sistemas Computacionales de la {{university}}. Mi objetivo es aprovechar la tecnología para crear soluciones innovadoras que mejoren la vida cotidiana.",
   "about_me.highlight1_p1": "Universidad de las Américas Puebla (UDLAP)",
-  "about_me.p2": "Durante mi formación, he adquirido experiencia práctica en **Angular, Python, TypeScript y JavaScript**, además de haber cursado materias relevantes como desarrollo de aplicaciones móviles, ingeniería de software, inteligencia artificial, UX, HCI, aprendizaje de máquina, visión artificial y bases de datos avanzadas.",
-  "about_me.p3": "Mi objetivo es convertirme en un **desarrollador de aplicaciones líder**, combinando creatividad y conocimientos técnicos para diseñar experiencias digitales transformadoras. Mi afición por los videojuegos alimenta mi curiosidad por la programación, por lo que me mantengo al día con las últimas tendencias tecnológicas, exploro nuevas herramientas y lidero proyectos paralelos que integran mis intereses en aplicaciones y entretenimiento. Más allá del ámbito digital, soy un entusiasta del fútbol: disfruto tanto practicarlo como seguir los partidos, una pasión que me llena de energía y me motiva a dar lo mejor en cada desafío.",
+
+  "about_me.p2": "He adquirido experiencia práctica en {{core_tech_stack}}, complementada con cursos en desarrollo móvil, IA, UX y bases de datos, lo que me permite abordar desafíos complejos.",
+  "about_me.highlight1_p2": "Angular, Python, TypeScript y JavaScript",
+
+  "about_me.p3": "Busco convertirme en un {{leading_dev_goal}}, fusionando creatividad y conocimientos técnicos para diseñar experiencias digitales transformadoras. Mi curiosidad por la programación se alimenta de mi afición por los videojuegos y el fútbol, impulsándome a explorar nuevas tendencias y liderar proyectos.",
+  "about_me.highlight1_p3": "desarrollador de aplicaciones líder",
 
 
   "projects.title": "Proyectos",
