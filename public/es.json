@@ -24,33 +24,52 @@
 
 
   "projects.title": "Proyectos",
-  "projects.pacto.title": "Pacto: Gestión inteligente de contratos con blockchain",
-  "projects.pacto.description": "Desarrollé una plataforma web en Angular para la creación, firma e interacción con contratos inteligentes, reduciendo en un 50% el tiempo requerido para completar un flujo de contrato respecto a métodos tradicionales. Implementé contratos en Solidity desplegados en la testnet Sepolia, integrando MetaMask, ethers.js y Firestore para una gestión segura, automatizada y descentralizada.",
+  "projects.code": "Código",
+  "projects.demo": "Demo",
+  "projects.pacto.title": "Pacto: Gestión Inteligente de Contratos con Blockchain",
+  "projects.pacto.description": "Plataforma web que simplifica la creación y gestión de contratos inteligentes. Utiliza blockchain para automatizar flujos contractuales, ofreciendo seguridad y descentralización.",
+
   "projects.mobile_academic.title": "Mobile Academic Management",
-  "projects.mobile_academic.description": "Desarrollé una aplicación móvil para Android en Kotlin que permite gestionar materias, asistencia con escaneo QR y calificaciones de estudiantes, enfocada en entornos académicos. Automatizó el control académico, reduciendo el tiempo de gestión manual en un 70% y mejorando la trazabilidad de datos estudiantiles.",
-  "projects.iot_monitoring.title": "Monitoreo inteligente de temperatura con IoT",
-  "projects.iot_monitoring.description": "Implementé un sistema IoT con ESP32 y sensor MLX90614 para monitorear en tiempo real la temperatura de chocolate, enviando alertas automatizadas por WhatsApp a través de Twilio al superar umbrales críticos, lo que redujo la supervisión manual en un 80%. Integré InfluxDB y Grafana, además se redujo el TNP en un 35%, evitando paros por sobrecalentamiento y permitiendo continuar la producción sin detener las máquinas, lo que aumentó la disponibilidad operativa del sistema.",
+  "projects.mobile_academic.description": "Aplicación móvil Android para optimizar la gestión académica. Permite controlar materias, registrar asistencia con QR y consultar calificaciones, automatizando el control académico.",
+
+  "projects.cultivo_sano.title": "Cultivo Sano: Detección de Enfermedades en Plantas",
+  "projects.cultivo_sano.description": "App móvil iOS que usa visión artificial para la detección temprana de enfermedades en plantas. Empodera a comunidades rurales con diagnósticos rápidos y precisos, mejorando la salud de los cultivos.",
+
+  "projects.iot_monitoring.title": "Monitoreo Inteligente de Temperatura con IoT",
+  "projects.iot_monitoring.description": "Sistema IoT que monitorea la temperatura en tiempo real y envía alertas automatizadas. Optimiza procesos industriales al prevenir sobrecalentamientos y reducir el tiempo no productivo.",
+
   "projects.cine_series_hub.title": "Cine & Series Hub",
-  "projects.cine_series_hub.description": "Desarrollé una aplicación en Kotlin que integra la API de TMDb para explorar películas y series con sistema de favoritos, navegación intuitiva y diseño responsivo. Optimicé el rendimiento con manejo eficiente de RecyclerView y consumo de red, reduciendo el tiempo de carga en un 35% y aumentando la retención de usuarios al 90% en pruebas piloto.",
-  "projects.inclusive_reservation.title": "Plataforma web inclusiva de reservas en tiempo real",
-  "projects.inclusive_reservation.description": "Desarrollé una aplicación web en Angular con sistema de reservas en tiempo real, perfiles de barberos con portafolios, calificaciones anónimas y recordatorios automáticos por SMS y correo. Reduje el tiempo de reserva en un 55%, elevé la tasa de éxito al 96% y mejoré la usabilidad general (SUS: 84), integrando accesibilidad total para usuarios con limitaciones visuales o motrices.",
-  "projects.sms_encryption.title": "Cifrado SMS mediante RSA y análisis SSL/TLS",
-  "projects.sms_encryption.description": "Desarrollé una aplicación de mensajería para Android utilizando Kotlin y Android Studio, integrando cifrado RSA para comunicaciones SMS seguras con autenticación de usuario y almacenamiento de mensajes respaldados por Firebase. Optimicé el rendimiento de descifrado mediante la implementación de RSA-CRT, reduciendo el tiempo de descifrado de 4,053 ms a 1,172 ms (3 veces más rápido), lo que garantiza la seguridad en tiempo real.",
-  "projects.ml_travel_prediction.title": "Predicción de cancelaciones de viaje mediante aprendizaje de máquina",
-  "projects.ml_travel_prediction.description": "Implementé un flujo de trabajo de ML de inicio a fin sobre 126 registros de viajes para predecir cancelaciones. Preprocesé los datos extrayendo características temporales, escalando variables numéricas y agrupando las tasas de cancelación.",
-  "projects.parking_system.title": "Sistema de gestión de estacionamientos",
-  "projects.parking_system.description": "Desarrollé una aplicación móvil multiplataforma para optimizar el estacionamiento universitario, mostrando disponibilidad de espacios en tiempo real y permitiendo reservas. Integré servicios de geolocalización y mapas, reduciendo el tiempo de búsqueda de estacionamiento en un 40% y aumentando la ocupación de plazas en un 30%.",
-  "projects.cancer_support_app.title": "Aplicación de apoyo para pacientes oncológicos",
-  "projects.cancer_support_app.description": "Lideré la creación de una aplicación móvil multiplataforma con Dart, que ofrece apoyo emocional personalizado a pacientes oncológicos mediante un chatbot potenciado por IA. Elegida para formar parte de la tesis de estudiantes de Medicina.",
-  "projects.sql_transaction_system.title": "Sistema de gestión de transacciones SQL",
-  "projects.sql_transaction_system.description": "Desarrollé una aplicación de gestión de transacciones con interfaz gráfica usando JavaScript y SQL. Optimicé las operaciones de base de datos para soportar más de 500 transacciones por hora, reduciendo los tiempos de procesamiento en un 25% y garantizando alta integridad de datos.",
-  "projects.super_mario_bros.title": "Super Mario Bros",
-  "projects.super_mario_bros.description": "Desarrollé un juego de plataformas retro en C#, con diseño de niveles dinámico y controles responsivos, evocando la experiencia clásica de Mario Bros.",
-  "projects.vending_machine_logic.title": "Lógica de máquina expendedora (VHDL)",
-  "projects.vending_machine_logic.description": "Diseñé la lógica de control de una máquina expendedora en la placa FPGA Basys 3 usando VHDL y desarrollé circuitos digitales para procesar monedas y dispensar productos, logrando una alta tasa de éxito en simulaciones.",
+  "projects.cine_series_hub.description": "Aplicación móvil que integra la API de TMDb para explorar películas y series. Ofrece un sistema de favoritos y navegación intuitiva para una experiencia de usuario fluida.",
+
+  "projects.inclusive_reservation.title": "Plataforma Web Inclusiva de Reservas en Tiempo Real",
+  "projects.inclusive_reservation.description": "Plataforma web con sistema de reservas en tiempo real, perfiles de servicio y recordatorios automáticos. Su diseño inclusivo garantiza accesibilidad total para todos los usuarios.",
+
+  "projects.sms_encryption.title": "Cifrado SMS mediante RSA y Análisis SSL/TLS",
+  "projects.sms_encryption.description": "Aplicación de mensajería Android con cifrado RSA para comunicaciones SMS seguras. Garantiza la privacidad y autenticación de mensajes, optimizando el rendimiento de descifrado.",
+
+  "projects.ml_travel_prediction.title": "Predicción de Cancelaciones de Viaje mediante Aprendizaje de Máquina",
+  "projects.ml_travel_prediction.description": "Sistema de Machine Learning que predice cancelaciones de viajes. Analiza datos históricos para ofrecer predicciones precisas y optimizar la gestión de reservas.",
+
+  "projects.parking_system.title": "Sistema de Gestión de Estacionamientos",
+  "projects.parking_system.description": "Aplicación móvil multiplataforma que optimiza el estacionamiento universitario. Muestra disponibilidad de espacios en tiempo real y permite reservas, mejorando la eficiencia del campus.",
+
+  "projects.cancer_support_app.title": "Aplicación de Apoyo para Pacientes Oncológicos",
+  "projects.cancer_support_app.description": "Aplicación móvil multiplataforma que ofrece apoyo emocional personalizado a pacientes oncológicos. Integra un chatbot con IA para brindar acompañamiento y recursos.",
+
+  "projects.sql_transaction_system.title": "Sistema de Gestión de Transacciones SQL",
+  "projects.sql_transaction_system.description": "Aplicación de gestión de transacciones con interfaz gráfica que optimiza operaciones de base de datos. Soporta alto volumen de transacciones, asegurando integridad y eficiencia.",
+
+  "projects.super_mario_bros.title": "Super Mario Bros (Recreación)",
+  "projects.super_mario_bros.description": "Juego de plataformas retro que recrea la experiencia clásica de Super Mario Bros. Ofrece diseño de niveles dinámico y controles responsivos para una jugabilidad auténtica.",
+
+  "projects.vending_machine_logic.title": "Lógica de Máquina Expendedora (VHDL)",
+  "projects.vending_machine_logic.description": "Implementación de la lógica de control para una máquina expendedora. Utiliza VHDL y circuitos digitales para procesar pagos y dispensar productos con alta fiabilidad.",
+
+  "projects.stemify.title": "STEMify: Orientación Vocacional STEM",
+  "projects.stemify.description": "Aplicación móvil iOS que orienta a jóvenes hacia carreras STEM mediante curiosidad guiada, gamificación e inspiración en modelos a seguir. Incluye geolocalización de universidades, scraping web y flujos personalizados.",
 
 
-"experience.title": "Desarrollo y Formación",
+  "experience.title": "Desarrollo y Formación",
   "experience.relevant_experience_tab": "Experiencia Relevante", 
   "experience.education_tab": "Educación",
 

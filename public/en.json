@@ -24,30 +24,60 @@
 
 
   "projects.title": "Projects",
-  "projects.pacto.title": "Pacto: Smart Contract Management with Blockchain",
-  "projects.pacto.description": "Developed a web platform in Angular for the creation, signing, and interaction with smart contracts, reducing the time required to complete a contract flow by 50% compared to traditional methods. Implemented Solidity contracts deployed on the Sepolia testnet, integrating MetaMask, ethers.js, and Firestore for secure, automated, and decentralized management.",
+"projects.pacto.title": "Pacto: Smart Contract Management with Blockchain",
+  "projects.pacto.description_1": "Pacto is a web platform that simplifies the creation, signing, and management of smart contracts. It uses blockchain technology to automate contractual flows, offering security and decentralization.",
+  "projects.pacto.description_2": "It drastically reduces the time required to complete a contract flow compared to traditional methods, ensuring secure and automated management.",
+
   "projects.mobile_academic.title": "Mobile Academic Management",
-  "projects.mobile_academic.description": "Developed a mobile application for Android in Kotlin that allows managing subjects, attendance with QR scanning, and student grades, focused on academic environments. Automated academic control, reducing manual management time by 70% and improving student data traceability.",
+  "projects.mobile_academic.description_1": "Mobile Academic Management is an Android mobile application designed to optimize academic management. It allows students and teachers to control subjects, record attendance with QR scanning, and view grades.",
+  "projects.mobile_academic.description_2": "This tool efficiently automates academic control, improving student data traceability and reducing manual management time.",
+
+  "projects.cultivo_sano.title": "Cultivo Sano: Plant Disease Detection",
+  "projects.cultivo_sano.description_1": "Cultivo Sano is an iOS mobile application that uses computer vision for early and accurate detection of plant diseases. It empowers rural communities by offering fast and reliable diagnoses, improving crop health.",
+  "projects.cultivo_sano.description_2": "It integrates a robust detection model trained with over 10,000 images, achieving 87% accuracy and reducing diagnosis time by 60% compared to traditional methods, with efficient on-device processing.",
+
   "projects.iot_monitoring.title": "Smart Temperature Monitoring with IoT",
-  "projects.iot_monitoring.description": "Implemented an IoT system with ESP32 and MLX90614 sensor for real-time chocolate temperature monitoring, sending automated WhatsApp alerts via Twilio when critical thresholds were exceeded, which reduced manual supervision by 80%. Integrated InfluxDB and Grafana, also reduced non-productive time by 35%, preventing shutdowns due to overheating and allowing production to continue without stopping machines, which increased system operational availability.",
+  "projects.iot_monitoring.description_1": "This IoT system monitors temperature in real-time and sends automated WhatsApp alerts when critical thresholds are exceeded. It allows supervising industrial processes (e.g., chocolate) and optimizing production.",
+  "projects.iot_monitoring.description_2": "By preventing overheating and reducing non-productive time, this system increases operational availability and efficiency in manufacturing environments.",
+
   "projects.cine_series_hub.title": "Cine & Series Hub",
-  "projects.cine_series_hub.description": "Developed a Kotlin application integrating the TMDb API to explore movies and series with a favorites system, intuitive navigation, and responsive design. Optimized performance with efficient RecyclerView handling and network consumption, reducing loading time by 35% and increasing user retention to 90% in pilot tests.",
+  "projects.cine_series_hub.description_1": "Cine & Series Hub is a mobile application that integrates the TMDb API to explore movies and series. It offers a favorites system, intuitive navigation, and a responsive design for a fluid user experience.",
+  "projects.cine_series_hub.description_2": "It optimizes performance with efficient network consumption handling, reducing loading time and increasing user retention in pilot tests.",
+
   "projects.inclusive_reservation.title": "Inclusive Real-time Booking Web Platform",
-  "projects.inclusive_reservation.description": "Developed an Angular web application with a real-time booking system, barber profiles with portfolios, anonymous ratings, and automatic SMS and email reminders. Reduced booking time by 55%, increased success rate to 96%, and improved overall usability (SUS: 84), integrating full accessibility for users with visual or motor limitations.",
+  "projects.inclusive_reservation.description_1": "This web platform offers a real-time booking system with service profiles, portfolios, anonymous ratings, and automatic SMS and email reminders.",
+  "projects.inclusive_reservation.description_2": "Its inclusive design ensures full accessibility for users with visual or motor limitations, improving usability and booking success rate.",
+
   "projects.sms_encryption.title": "SMS Encryption using RSA and SSL/TLS Analysis",
-  "projects.sms_encryption.description": "Developed a messaging application for Android using Kotlin and Android Studio, integrating RSA encryption for secure SMS communications with user authentication and message storage backed by Firebase. Optimized decryption performance by implementing RSA-CRT, reducing decryption time from 4,053 ms to 1,172 ms (3 times faster), ensuring real-time security.",
+  "projects.sms_encryption.description_1": "This Android messaging application offers secure SMS communications using RSA encryption. It ensures message privacy and authentication, with storage backed by Firebase.",
+  "projects.sms_encryption.description_2": "It optimizes decryption performance by implementing RSA-CRT, ensuring real-time security and tripling processing speed.",
+
   "projects.ml_travel_prediction.title": "Travel Cancellation Prediction using Machine Learning",
-  "projects.ml_travel_prediction.description": "Implemented an end-to-end ML workflow on 126 travel records to predict cancellations. Preprocessed data by extracting temporal features, scaling numerical variables, and clustering cancellation rates.",
+  "projects.ml_travel_prediction.description_1": "This Machine Learning system predicts travel cancellations. It analyzes historical data and extracts temporal features to offer accurate predictions on cancellation probability.",
+  "projects.ml_travel_prediction.description_2": "It helps optimize reservation management by identifying patterns and risks, enabling more informed decision-making.",
+
   "projects.parking_system.title": "Parking Management System",
-  "projects.parking_system.description": "Developed a multi-platform mobile application to optimize university parking, showing real-time space availability and allowing reservations. Integrated geolocation and map services, reducing parking search time by 40% and increasing space occupancy by 30%.",
+  "projects.parking_system.description_1": "This parking management system optimizes parking space availability in real-time. It allows users to locate and reserve spaces, integrating geolocation and map services for easy navigation.",
+  "projects.parking_system.description_2": "It significantly reduces parking search time and increases space occupancy, improving overall campus efficiency.",
+
   "projects.cancer_support_app.title": "Support Application for Oncology Patients",
-  "projects.cancer_support_app.description": "Led the creation of a multi-platform mobile application with Dart, offering personalized emotional support to oncology patients through an AI-powered chatbot. Chosen to be part of the medical students' thesis.",
+  "projects.cancer_support_app.description_1": "This multi-platform mobile application offers personalized emotional support to oncology patients. It integrates an AI-powered chatbot to provide companionship and resources, serving as an innovative support tool.",
+  "projects.cancer_support_app.description_2": "It was selected to be part of medical students' thesis, highlighting its impact and relevance in the healthcare field.",
+
   "projects.sql_transaction_system.title": "SQL Transaction Management System",
-  "projects.sql_transaction_system.description": "Developed a transaction management application with a graphical interface using JavaScript and SQL. Optimized database operations to support over 500 transactions per hour, reducing processing times by 25% and ensuring high data integrity.",
-  "projects.super_mario_bros.title": "Super Mario Bros",
-  "projects.super_mario_bros.description": "Developed a retro platformer game in C#, with dynamic level design and responsive controls, evoking the classic Mario Bros experience.",
+  "projects.sql_transaction_system.description_1": "This transaction management system with a graphical interface optimizes database operations. It supports a high volume of transactions per hour, ensuring data integrity and efficient processing.",
+  "projects.sql_transaction_system.description_2": "It reduces processing times and guarantees high data integrity, making it a robust solution for high-transaction environments.",
+
+  "projects.super_mario_bros.title": "Super Mario Bros (Recreation)",
+  "projects.super_mario_bros.description_1": "Super Mario Bros is a retro platformer game that recreates the classic experience of the original. It offers dynamic level design and responsive controls for authentic and fun gameplay.",
+  "projects.super_mario_bros.description_2": "It evokes the nostalgia of the classic Mario Bros experience with a modern implementation in C#.",
+
   "projects.vending_machine_logic.title": "Vending Machine Logic (VHDL)",
-  "projects.vending_machine_logic.description": "Designed the control logic of a vending machine on the Basys 3 FPGA board using VHDL and developed digital circuits to process coins and dispense products, achieving a high success rate in simulations.",
+  "projects.vending_machine_logic.description_1": "This project implements the control logic for a vending machine. It uses VHDL and digital circuits to process coin payments and dispense products.",
+  "projects.vending_machine_logic.description_2": "It ensures a high success rate in simulations, demonstrating the reliability of the design for automated machine operation.",
+
+  "projects.stemify.title": "STEMify: STEM Career Guidance",
+  "projects.stemify.description": "iOS mobile app guiding youth towards STEM careers through guided curiosity, gamification, and role model inspiration. Features university geolocation, web scraping, and custom flows.",
 
 
   "experience.title": "Experience",

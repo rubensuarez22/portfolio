@@ -1,3 +1,4 @@
+<!-- src/app/components/projects/projects.html -->
 <section 
   id="proyectos" 
   [class]="'py-20 ' + (darkMode() ? 'bg-gray-950' : 'bg-gray-50') + ' transition-colors duration-300'">
@@ -15,7 +16,7 @@
           </span>
         </div>
         <h2 [class]="'text-3xl md:text-4xl font-bold ' + (darkMode() ? 'text-white' : 'text-gray-900')">
-          Proyectos
+          {{ 'projects.title' | translate }}
         </h2>
       </div>
 
@@ -24,16 +25,20 @@
           <div [class]="'flex flex-col gap-8 md:gap-12 ' + (i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse')">
             
             <div class="w-full md:w-1/2 rounded-lg overflow-hidden">
-              <img [src]="project.image" [alt]="project.title" class="w-full h-auto object-cover" />
+              <!-- ¡CAMBIO AQUÍ! Añade rounded-lg a la imagen -->
+              <img [src]="project.image" [alt]="project.titleKey | translate" class="w-full h-auto object-cover rounded-lg" />
             </div>
 
             <div class="w-full md:w-1/2 flex flex-col justify-center">
               <h3 [class]="'text-3xl font-bold mb-4 ' + (darkMode() ? 'text-white' : 'text-gray-900')">
-                {{ project.title }}
+                {{ project.titleKey | translate }}
               </h3>
-              <p [class]="'mb-6 ' + (darkMode() ? 'text-white' : 'text-gray-700')">
-                {{ project.description }}
-              </p>
+              
+              <ul [class]="'list-disc mb-6 ' + (darkMode() ? 'text-white' : 'text-gray-700')">
+                @for (descKey of project.descriptionKeys; track $index) {
+                  <li class="mb-1 ml-4">{{ descKey | translate }}</li>
+                }
+              </ul>
               
               <div class="flex space-x-4 mb-6">
                 @for (tech of project.techStack; track tech.name) {
@@ -46,11 +51,11 @@
               <div class="flex space-x-4">
                 <a [href]="project.codeLink" target="_blank" [class]="'px-5 py-2 border rounded-md flex items-center text-sm transition-colors ' + (darkMode() ? 'bg-[#1A1A1A] hover:bg-gray-800 border-gray-700 text-white' : 'bg-gray-100 hover:bg-gray-200 border-gray-300 text-gray-900')">
                   <lucide-angular [img]="GithubIcon" [size]="16" class="mr-2"></lucide-angular>
-                  Código
+                  {{ 'projects.code' | translate }}
                 </a>
                 <a [href]="project.demoLink" target="_blank" class="px-5 py-2 bg-[#3b82f6] hover:bg-[#2563eb] rounded-md flex items-center text-sm transition-colors text-white">
                   <lucide-angular [img]="ExternalLinkIcon" [size]="16" class="mr-2"></lucide-angular>
-                  Demo
+                  {{ 'projects.demo' | translate }}
                 </a>
               </div>
             </div>
@@ -58,4 +63,5 @@
         }
       </div>
     </div>
-  </div> </section>
+  </div>
+</section>
