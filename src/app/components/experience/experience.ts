@@ -1,5 +1,3 @@
-// src/app/components/experience/experience.ts
-
 import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
 import { ThemeService } from '../../services/theme';
 import { TranslatePipe } from '../../pipes/translate-pipe';
@@ -107,9 +105,9 @@ export class Experience {
         '/hal2.jpeg',
         '/angular.jpg',
         '/hal.jpeg',
-        
-        
-        
+
+
+
       ]
     },
     {
@@ -162,8 +160,8 @@ export class Experience {
         '/enactuscdmx.jpeg',
         '/enactuscdmx2.jpeg',
         '/enactuscdmx4.jpeg',
-        
-      
+
+
       ]
     },
   ];

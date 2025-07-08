@@ -15,13 +15,15 @@ import {
 import { ScrollFadeInDirective } from '../../directives/scroll-fade-in';
 // Importamos el MÓDULO y los OBJETOS de los íconos
 import { LucideAngularModule, MailIcon, CopyIcon, CheckIcon } from 'lucide-angular';
+import { TranslatePipe } from '../../pipes/translate-pipe';
 
 @Component({
   selector: 'app-contact-button',
   standalone: true,
   imports: [
     LucideAngularModule,
-    ScrollFadeInDirective // <-- Añade la directiva a los imports
+    ScrollFadeInDirective,
+    TranslatePipe // <-- Añade la directiva a los imports
   ],
   templateUrl: './contact-button.html',
   styleUrl: './contact-button.css',

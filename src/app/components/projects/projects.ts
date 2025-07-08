@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/cor
 import { ThemeService } from '../../services/theme';
 
 // Importamos el MÓDULO y los OBJETOS de los íconos
-import { LucideAngularModule, GithubIcon, ExternalLinkIcon } from 'lucide-angular';
+import { LucideAngularModule, GithubIcon, ExternalLinkIcon, XIcon, ChevronLeftIcon, ChevronRightIcon } from 'lucide-angular';
 // Importa lo mismo que en Hero.ts para las animaciones
 import {
   trigger,
@@ -44,7 +44,8 @@ const TECH_ICONS = {
   CSHARP: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/C_Sharp_logo_and_wordmark.svg/1200px-C_Sharp_logo_and_wordmark.svg.png',
   UNITY: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Unity_Technologies_logo.svg/1200px-Unity_Technologies_logo.svg.png',
   VHDL: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/VHDL_Logo.svg/1200px-VHDL_Logo.svg.png',
-  FPGA: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Altera_logo.svg/1200px-Altera_logo.svg.png'}
+  FPGA: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Altera_logo.svg/1200px-Altera_logo.svg.png'
+}
 
 @Component({
   selector: 'app-projects',
@@ -53,7 +54,7 @@ const TECH_ICONS = {
   templateUrl: './projects.html',
   styleUrl: './projects.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
-    animations: [
+  animations: [
     trigger('fadeAnimation', [
       state('void', style({
         opacity: 0,
@@ -69,6 +70,12 @@ const TECH_ICONS = {
       transition('visible => void', [
         animate('400ms ease-in')
       ])
+    ]),
+    trigger('modalAnimation', [
+      state('void', style({ opacity: 0, transform: 'scale(0.9)' })),
+      state('*', style({ opacity: 1, transform: 'scale(1)' })),
+      transition('void => *', [animate('200ms ease-out')]),
+      transition('* => void', [animate('200ms ease-in')])
     ])
   ]
 })
@@ -79,6 +86,36 @@ export class Projects {
   darkMode = this.themeService.darkMode;
   sectionVisible = signal(false); // Necesitas esta signal
 
+  // --- INICIO: LÓGICA DEL CARRUSEL DE VIDEOS ---
+  isModalOpen = signal(false);
+  selectedModalVideos = signal<{ title: string; url: string; }[]>([]);
+  currentVideoIndex = signal(0);
+
+  readonly XIcon = XIcon;
+  readonly ChevronLeftIcon = ChevronLeftIcon;
+  readonly ChevronRightIcon = ChevronRightIcon;
+
+  openVideoModal(videos: { title: string; url: string; }[] | undefined): void {
+    if (videos && videos.length > 0) {
+      this.selectedModalVideos.set(videos);
+      this.currentVideoIndex.set(0);
+      this.isModalOpen.set(true);
+    }
+  }
+
+  closeVideoModal(): void {
+    this.isModalOpen.set(false);
+  }
+
+  nextVideo(): void {
+    this.currentVideoIndex.update(index => (index + 1) % this.selectedModalVideos().length);
+  }
+
+  prevVideo(): void {
+    this.currentVideoIndex.update(index => (index - 1 + this.selectedModalVideos().length) % this.selectedModalVideos().length);
+  }
+  // --- FIN: LÓGICA DEL CARRUSEL ---
+
   onSectionVisible(isVisible: boolean) {
     this.sectionVisible.set(isVisible);
   }
@@ -87,7 +124,7 @@ export class Projects {
   readonly ExternalLinkIcon = ExternalLinkIcon;
 
   // Nuevos datos de los proyectos
-public projects = [
+  public projects = [
     {
       id: 1,
       titleKey: 'projects.pacto.title',
@@ -99,7 +136,7 @@ public projects = [
         { name: 'Angular', icon: TECH_ICONS.ANGULAR },
         { name: 'Solidity', icon: TECH_ICONS.SOLIDITY },
         { name: 'MetaMask', icon: TECH_ICONS.METAMASK }
-     ],
+      ],
       codeLink: 'https://github.com/rubensuarez22/Pacto',
       demoLink: 'https://rubensuarez22.github.io/Pacto/'
     },
@@ -115,7 +152,12 @@ public projects = [
         { name: 'MapKit', icon: TECH_ICONS.MAPKIT }
       ],
       codeLink: 'https://github.com/rubensuarez22/Stemify', // Ajusta la URL del repo de STEMify
-      demoLink: '#' // Si tienes un demo interactivo (ej. Figma Prototype), pon la URL aquí
+      demoLink: '#',
+      demoVideos: [
+        { title: 'Demo Principal', url: '/stemify1.mp4' },
+        { title: 'Demo Registro', url: '/stemify2.mp4' },
+        { title: 'Demo Tercera', url: '/stemify3.mp4' },
+      ]
     },
     {
       id: 3,
@@ -142,121 +184,123 @@ public projects = [
         { name: 'Core ML / Vision API', icon: TECH_ICONS.AI_CHATBOT } // Usamos AI_CHATBOT como genérico para ML
       ],
       codeLink: 'https://github.com/rubensuarez22/Cultivo-Sano', // Ajusta si es diferente
-      demoLink: '#' // O un enlace real si existe
+      demoVideos: [
+        { title: 'Demo Principal', url: '/cultivoSano.mp4' },
+      ]
     },
-   /* {r
-      id: 5,
-      titleKey: 'projects.iot_monitoring.title',
-      descriptionKey: 'projects.iot_monitoring.description',
-      image: 'https://uploadthingy.s3.us-west-1.amazonaws.com/lJ4W8Y2tX2k3k4k5l6l7m8/iot.png',
-      techStack: [
-        { name: 'ESP32', icon: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Espressif_ESP32_icon.svg/1200px-Espressif_ESP32_icon.svg.png' },
-        { name: 'InfluxDB', icon: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/InfluxDB_Logo.svg/1200px-InfluxDB_Logo.svg.png' },
-        { name: 'Grafana', icon: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Grafana_logo.svg/1200px-Grafana_logo.svg.png' }
-      ],
-      codeLink: 'https://github.com/rubensuarez22/IoT-Temperature-Monitoring',
-      demoLink: '#'
-    },
-    {
-      id: 5,
-      titleKey: 'projects.cine_series_hub.title',
-      descriptionKey: 'projects.cine_series_hub.description',
-      image: 'https://uploadthingy.s3.us-west-1.amazonaws.com/2s3d4f5g6h7j8k9l0m1n/movies.png',
-      techStack: [
-        { name: 'Kotlin', icon: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Kotlin_Icon.svg/1200px-Kotlin_Icon.svg.png' },
-        { name: 'TMDb API', icon: 'https://www.themoviedb.org/assets/2/v4/logos/v2/blue_square_1-5bdc753b7ea7bbdd77d54baf952670bb14e8f19bebbecfd44c20fe4f7f6f87bd.svg' }
-      ],
-      codeLink: 'https://github.com/rubensuarez22/Cine-Series-Hub',
-      demoLink: '#'
-    },
-    {
-      id: 7,
-      titleKey: 'projects.sms_encryption.title',
-      descriptionKey: 'projects.sms_encryption.description',
-      image: 'https://uploadthingy.s3.us-west-1.amazonaws.com/qwertyyuiopasdfghjklzxcvbnm/encryption.png',
-      techStack: [
-        { name: 'Kotlin', icon: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Kotlin_Icon.svg/1200px-Kotlin_Icon.svg.png' },
-        { name: 'RSA', icon: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/RSA_logo.svg/1200px-RSA_logo.svg.png' }
-      ],
-      codeLink: 'https://github.com/rubensuarez22/SMS-Encryption',
-      demoLink: '#'
-    },
-    {
-      id: 8,
-      titleKey: 'projects.ml_travel_prediction.title',
-      descriptionKey: 'projects.ml_travel_prediction.description',
-      image: 'https://uploadthingy.s3.us-west-1.amazonaws.com/zxcvbnmasdfghjklqwertyuiop/travel.png',
-      techStack: [
-        { name: 'Python', icon: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1200px-Python-logo-notext.svg.png' },
-        { name: 'Scikit-learn', icon: 'https://scikit-learn.org/stable/_static/scikit-learn-logo-light.svg' }
-      ],
-      codeLink: 'https://github.com/rubensuarez22/ML-Travel-Prediction',
-      demoLink: '#'
-    },
-    {
-      id: 9,
-      titleKey: 'projects.parking_system.title',
-      descriptionKey: 'projects.parking_system.description',
-      image: 'https://uploadthingy.s3.us-west-1.amazonaws.com/poiuytrewqasdfghjklmnbvcxz/parking.png',
-      techStack: [
-        { name: 'Kotlin', icon: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Kotlin_Icon.svg/1200px-Kotlin_Icon.svg.png' },
-        { name: 'Android', icon: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Android_robot.svg/1200px-Android_robot.svg.png' }
-      ],
-      codeLink: 'https://github.com/rubensuarez22/Parking-Management-System',
-      demoLink: '#'
-    },
-    {
-      id: 10,
-      titleKey: 'projects.cancer_support_app.title',
-      descriptionKey: 'projects.cancer_support_app.description',
-      image: 'https://uploadthingy.s3.us-west-1.amazonaws.com/lkjhgfdsaqwertymnbvcx/cancer.png',
-      techStack: [
-        { name: 'Dart', icon: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Dart_logo.svg/1200px-Dart_logo.svg.png' },
-        { name: 'Flutter', icon: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Flutter_logo.svg/200px-Flutter_logo.svg.png' },
-        { name: 'AI Chatbot', icon: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Chatbot_logo.svg/1200px-Chatbot_logo.svg.png' }
-      ],
-      codeLink: 'https://github.com/rubensuarez22/Cancer-Support-App',
-      demoLink: '#'
-    },
-    {
-      id: 11,
-      titleKey: 'projects.sql_transaction_system.title',
-      descriptionKey: 'projects.sql_transaction_system.description',
-      image: 'https://uploadthingy.s3.us-west-1.amazonaws.com/abcdefghijklmnoprstuvwxyz/sql.png',
-      techStack: [
-        { name: 'JavaScript', icon: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/1200px-Unofficial_JavaScript_logo_2.svg.png' },
-        { name: 'SQL', icon: 'https://upload.wikimedia.org/wikipedia/commons/8/87/Sql_data_base_with_logo.png' }
-      ],
-      codeLink: 'https://github.com/rubensuarez22/SQL-Transaction-Management-System',
-      demoLink: '#'
-    },
-    {
-      id: 12,
-      titleKey: 'projects.super_mario_bros.title',
-      descriptionKey: 'projects.super_mario_bros.description',
-      image: 'https://uploadthingy.s3.us-west-1.amazonaws.com/0987654321qwertyuiopasdfghjkl/mario.png',
-      techStack: [
-        { name: 'C#', icon: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/C_Sharp_logo_and_wordmark.svg/1200px-C_Sharp_logo_and_wordmark.svg.png' },
-        { name: 'Unity', icon: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Unity_Technologies_logo.svg/1200px-Unity_Technologies_logo.svg.png' }
-      ],
-      codeLink: 'https://github.com/rubensuarez22/Super-Mario-Bros',
-      demoLink: '#'
-    },
-        {
-      id: 13,
-      titleKey: 'projects.mobile_academic.title',
-      descriptionKeys: [ // <-- ¡CAMBIO AQUÍ! Ahora es un array de descripciones
-        'projects.cultivo_sano.description_1',
-        'projects.cultivo_sano.description_2'
-      ],
-      image: '/deviceframes.png',
-      techStack: [+
-        { name: 'Kotlin', icon: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Kotlin_Icon.svg/1200px-Kotlin_Icon.svg.png' },
-        { name: 'Android Studio', icon: 'https://developer.android.com/static/images/brand/Android_Studio_Icon_2019.svg' }
-      ],
-      codeLink: 'https://github.com/rubensuarez22/Mobile-Academic-Management',
-      demoLink: '#'
-    },*/
+    /* {r
+       id: 5,
+       titleKey: 'projects.iot_monitoring.title',
+       descriptionKey: 'projects.iot_monitoring.description',
+       image: 'https://uploadthingy.s3.us-west-1.amazonaws.com/lJ4W8Y2tX2k3k4k5l6l7m8/iot.png',
+       techStack: [
+         { name: 'ESP32', icon: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Espressif_ESP32_icon.svg/1200px-Espressif_ESP32_icon.svg.png' },
+         { name: 'InfluxDB', icon: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/InfluxDB_Logo.svg/1200px-InfluxDB_Logo.svg.png' },
+         { name: 'Grafana', icon: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Grafana_logo.svg/1200px-Grafana_logo.svg.png' }
+       ],
+       codeLink: 'https://github.com/rubensuarez22/IoT-Temperature-Monitoring',
+       demoLink: '#'
+     },
+     {
+       id: 5,
+       titleKey: 'projects.cine_series_hub.title',
+       descriptionKey: 'projects.cine_series_hub.description',
+       image: 'https://uploadthingy.s3.us-west-1.amazonaws.com/2s3d4f5g6h7j8k9l0m1n/movies.png',
+       techStack: [
+         { name: 'Kotlin', icon: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Kotlin_Icon.svg/1200px-Kotlin_Icon.svg.png' },
+         { name: 'TMDb API', icon: 'https://www.themoviedb.org/assets/2/v4/logos/v2/blue_square_1-5bdc753b7ea7bbdd77d54baf952670bb14e8f19bebbecfd44c20fe4f7f6f87bd.svg' }
+       ],
+       codeLink: 'https://github.com/rubensuarez22/Cine-Series-Hub',
+       demoLink: '#'
+     },
+     {
+       id: 7,
+       titleKey: 'projects.sms_encryption.title',
+       descriptionKey: 'projects.sms_encryption.description',
+       image: 'https://uploadthingy.s3.us-west-1.amazonaws.com/qwertyyuiopasdfghjklzxcvbnm/encryption.png',
+       techStack: [
+         { name: 'Kotlin', icon: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Kotlin_Icon.svg/1200px-Kotlin_Icon.svg.png' },
+         { name: 'RSA', icon: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/RSA_logo.svg/1200px-RSA_logo.svg.png' }
+       ],
+       codeLink: 'https://github.com/rubensuarez22/SMS-Encryption',
+       demoLink: '#'
+     },
+     {
+       id: 8,
+       titleKey: 'projects.ml_travel_prediction.title',
+       descriptionKey: 'projects.ml_travel_prediction.description',
+       image: 'https://uploadthingy.s3.us-west-1.amazonaws.com/zxcvbnmasdfghjklqwertyuiop/travel.png',
+       techStack: [
+         { name: 'Python', icon: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1200px-Python-logo-notext.svg.png' },
+         { name: 'Scikit-learn', icon: 'https://scikit-learn.org/stable/_static/scikit-learn-logo-light.svg' }
+       ],
+       codeLink: 'https://github.com/rubensuarez22/ML-Travel-Prediction',
+       demoLink: '#'
+     },
+     {
+       id: 9,
+       titleKey: 'projects.parking_system.title',
+       descriptionKey: 'projects.parking_system.description',
+       image: 'https://uploadthingy.s3.us-west-1.amazonaws.com/poiuytrewqasdfghjklmnbvcxz/parking.png',
+       techStack: [
+         { name: 'Kotlin', icon: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Kotlin_Icon.svg/1200px-Kotlin_Icon.svg.png' },
+         { name: 'Android', icon: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Android_robot.svg/1200px-Android_robot.svg.png' }
+       ],
+       codeLink: 'https://github.com/rubensuarez22/Parking-Management-System',
+       demoLink: '#'
+     },
+     {
+       id: 10,
+       titleKey: 'projects.cancer_support_app.title',
+       descriptionKey: 'projects.cancer_support_app.description',
+       image: 'https://uploadthingy.s3.us-west-1.amazonaws.com/lkjhgfdsaqwertymnbvcx/cancer.png',
+       techStack: [
+         { name: 'Dart', icon: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Dart_logo.svg/1200px-Dart_logo.svg.png' },
+         { name: 'Flutter', icon: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Flutter_logo.svg/200px-Flutter_logo.svg.png' },
+         { name: 'AI Chatbot', icon: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Chatbot_logo.svg/1200px-Chatbot_logo.svg.png' }
+       ],
+       codeLink: 'https://github.com/rubensuarez22/Cancer-Support-App',
+       demoLink: '#'
+     },
+     {
+       id: 11,
+       titleKey: 'projects.sql_transaction_system.title',
+       descriptionKey: 'projects.sql_transaction_system.description',
+       image: 'https://uploadthingy.s3.us-west-1.amazonaws.com/abcdefghijklmnoprstuvwxyz/sql.png',
+       techStack: [
+         { name: 'JavaScript', icon: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/1200px-Unofficial_JavaScript_logo_2.svg.png' },
+         { name: 'SQL', icon: 'https://upload.wikimedia.org/wikipedia/commons/8/87/Sql_data_base_with_logo.png' }
+       ],
+       codeLink: 'https://github.com/rubensuarez22/SQL-Transaction-Management-System',
+       demoLink: '#'
+     },
+     {
+       id: 12,
+       titleKey: 'projects.super_mario_bros.title',
+       descriptionKey: 'projects.super_mario_bros.description',
+       image: 'https://uploadthingy.s3.us-west-1.amazonaws.com/0987654321qwertyuiopasdfghjkl/mario.png',
+       techStack: [
+         { name: 'C#', icon: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/C_Sharp_logo_and_wordmark.svg/1200px-C_Sharp_logo_and_wordmark.svg.png' },
+         { name: 'Unity', icon: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Unity_Technologies_logo.svg/1200px-Unity_Technologies_logo.svg.png' }
+       ],
+       codeLink: 'https://github.com/rubensuarez22/Super-Mario-Bros',
+       demoLink: '#'
+     },
+         {
+       id: 13,
+       titleKey: 'projects.mobile_academic.title',
+       descriptionKeys: [ // <-- ¡CAMBIO AQUÍ! Ahora es un array de descripciones
+         'projects.cultivo_sano.description_1',
+         'projects.cultivo_sano.description_2'
+       ],
+       image: '/deviceframes.png',
+       techStack: [+
+         { name: 'Kotlin', icon: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Kotlin_Icon.svg/1200px-Kotlin_Icon.svg.png' },
+         { name: 'Android Studio', icon: 'https://developer.android.com/static/images/brand/Android_Studio_Icon_2019.svg' }
+       ],
+       codeLink: 'https://github.com/rubensuarez22/Mobile-Academic-Management',
+       demoLink: '#'
+     },*/
 
   ];
 }

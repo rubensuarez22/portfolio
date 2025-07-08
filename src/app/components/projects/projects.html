@@ -1,13 +1,33 @@
-<!-- src/app/components/projects/projects.html -->
-<section 
-  id="proyectos" 
+@if (isModalOpen()) {
+<div class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center"
+  (click)="closeVideoModal()" [@modalAnimation]>
+  <div class="relative w-full max-w-4xl p-4" (click)="$event.stopPropagation()">
+    <div class="aspect-video w-full">
+      <video class="w-full h-full rounded-lg" [src]="selectedModalVideos()[currentVideoIndex()].url" controls
+        autoplay></video>
+    </div>
+
+    <button (click)="closeVideoModal()"
+      class="absolute top-0 right-0 -mr-2 -mt-2 text-white bg-black/50 rounded-full p-1 leading-none text-2xl z-10">&times;</button>
+
+    @if (selectedModalVideos().length > 1) {
+    <button (click)="prevVideo()"
+      class="absolute top-1/2 -translate-y-1/2 -left-4 bg-black/50 text-white p-2 rounded-full">
+      <lucide-angular [img]="ChevronLeftIcon"></lucide-angular>
+    </button>
+    <button (click)="nextVideo()"
+      class="absolute top-1/2 -translate-y-1/2 -right-4 bg-black/50 text-white p-2 rounded-full">
+      <lucide-angular [img]="ChevronRightIcon"></lucide-angular>
+    </button>
+    }
+  </div>
+</div>
+}
+<section id="proyectos"
   [class]="'py-20 ' + (darkMode() ? 'bg-gray-950' : 'bg-gray-50') + ' transition-colors duration-300'">
-  
-  <div
-    appScrollFadeIn
-    (elementVisible)="onSectionVisible($event)"
-    [@fadeAnimation]="sectionVisible() ? 'visible' : 'void'"
-  >
+
+  <div appScrollFadeIn (elementVisible)="onSectionVisible($event)"
+    [@fadeAnimation]="sectionVisible() ? 'visible' : 'void'">
     <div class="container mx-auto px-4">
       <div class="flex items-center mb-16">
         <div class="mr-4 text-3xl text-[#3b82f6]">
@@ -22,44 +42,55 @@
 
       <div class="space-y-24">
         @for (project of projects; track project.id; let i = $index) {
-          <div [class]="'flex flex-col gap-8 md:gap-12 ' + (i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse')">
-            
-            <div class="w-full md:w-1/2 rounded-lg overflow-hidden">
-              <!-- ¡CAMBIO AQUÍ! Añade rounded-lg a la imagen -->
-              <img [src]="project.image" [alt]="project.titleKey | translate" class="w-full h-auto object-cover rounded-lg" />
+        <div [class]="'flex flex-col gap-8 md:gap-12 ' + (i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse')">
+
+          <div class="w-full md:w-1/2 rounded-lg overflow-hidden">
+            <!-- ¡CAMBIO AQUÍ! Añade rounded-lg a la imagen -->
+            <img [src]="project.image" [alt]="project.titleKey | translate"
+              class="w-full h-auto object-cover rounded-lg" />
+          </div>
+
+          <div class="w-full md:w-1/2 flex flex-col justify-center">
+            <h3 [class]="'text-3xl font-bold mb-4 ' + (darkMode() ? 'text-white' : 'text-gray-900')">
+              {{ project.titleKey | translate }}
+            </h3>
+
+            <ul [class]="'list-disc mb-6 ' + (darkMode() ? 'text-white' : 'text-gray-700')">
+              @for (descKey of project.descriptionKeys; track $index) {
+              <li class="mb-1 ml-4">{{ descKey | translate }}</li>
+              }
+            </ul>
+
+            <div class="flex space-x-4 mb-6">
+              @for (tech of project.techStack; track tech.name) {
+              <div class="w-8 h-8" [title]="tech.name">
+                <img [src]="tech.icon" [alt]="tech.name" class="w-full h-full object-contain" />
+              </div>
+              }
             </div>
 
-            <div class="w-full md:w-1/2 flex flex-col justify-center">
-              <h3 [class]="'text-3xl font-bold mb-4 ' + (darkMode() ? 'text-white' : 'text-gray-900')">
-                {{ project.titleKey | translate }}
-              </h3>
-              
-              <ul [class]="'list-disc mb-6 ' + (darkMode() ? 'text-white' : 'text-gray-700')">
-                @for (descKey of project.descriptionKeys; track $index) {
-                  <li class="mb-1 ml-4">{{ descKey | translate }}</li>
-                }
-              </ul>
-              
-              <div class="flex space-x-4 mb-6">
-                @for (tech of project.techStack; track tech.name) {
-                  <div class="w-8 h-8" [title]="tech.name">
-                    <img [src]="tech.icon" [alt]="tech.name" class="w-full h-full object-contain" />
-                  </div>
-                }
-              </div>
-
-              <div class="flex space-x-4">
-                <a [href]="project.codeLink" target="_blank" [class]="'px-5 py-2 border rounded-md flex items-center text-sm transition-colors ' + (darkMode() ? 'bg-[#1A1A1A] hover:bg-gray-800 border-gray-700 text-white' : 'bg-gray-100 hover:bg-gray-200 border-gray-300 text-gray-900')">
-                  <lucide-angular [img]="GithubIcon" [size]="16" class="mr-2"></lucide-angular>
-                  {{ 'projects.code' | translate }}
-                </a>
-                <a [href]="project.demoLink" target="_blank" class="px-5 py-2 bg-[#3b82f6] hover:bg-[#2563eb] rounded-md flex items-center text-sm transition-colors text-white">
-                  <lucide-angular [img]="ExternalLinkIcon" [size]="16" class="mr-2"></lucide-angular>
-                  {{ 'projects.demo' | translate }}
-                </a>
-              </div>
+            <div class="flex space-x-4">
+              <a [href]="project.codeLink" target="_blank"
+                [class]="'px-5 py-2 border rounded-md flex items-center text-sm transition-colors ' + (darkMode() ? 'bg-[#1A1A1A] hover:bg-gray-800 border-gray-700 text-white' : 'bg-gray-100 hover:bg-gray-200 border-gray-300 text-gray-900')">
+                <lucide-angular [img]="GithubIcon" [size]="16" class="mr-2"></lucide-angular>
+                {{ 'projects.code' | translate }}
+              </a>
+              @if (project.demoVideos && project.demoVideos.length > 0) {
+              <button (click)="openVideoModal(project.demoVideos)"
+                class="px-5 py-2 bg-[#3b82f6] hover:bg-[#2563eb] rounded-md flex items-center text-sm transition-colors text-white cursor-pointer">
+                <lucide-angular [img]="ExternalLinkIcon" [size]="16" class="mr-2"></lucide-angular>
+                {{ 'projects.demo' | translate }}
+              </button>
+              } @else {
+              <a [href]="project.demoLink" target="_blank"
+                class="px-5 py-2 bg-[#3b82f6] hover:bg-[#2563eb] rounded-md flex items-center text-sm transition-colors text-white">
+                <lucide-angular [img]="ExternalLinkIcon" [size]="16" class="mr-2"></lucide-angular>
+                {{ 'projects.demo' | translate }}
+              </a>
+              }
             </div>
           </div>
+        </div>
         }
       </div>
     </div>

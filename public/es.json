@@ -1,4 +1,3 @@
-
 {
   "header.about_me": "Sobre mí",
   "header.projects": "Proyectos",
@@ -8,75 +7,53 @@
   "header.change_language": "Cambiar idioma",
   "header.change_to_light_mode": "Cambiar a modo claro",
   "header.change_to_dark_mode": "Cambiar a modo oscuro",
-
   "hero.greeting": "Hola 👋, soy",
   "hero.developer_role": "Ingeniero en Sistemas Computacionales",
   "hero.location": "México 🇲🇽",
   "hero.description": "Soy un desarrollador de software enfocado en transformar ideas en soluciones digitales. Construyo aplicaciones funcionales y eficientes para web y móvil.",
   "hero.contact_me": "Contáctame",
   "hero.download_cv": "Descargar CV",
-
-"about_me.title": "Sobre mí",
+  "about_me.title": "Sobre mí",
   "about_me.p1": "Hola, soy Rubén Suárez Díaz, Ingeniero en Sistemas Computacionales de la {{university}}. Mi objetivo es aprovechar la tecnología para crear soluciones innovadoras que mejoren la vida cotidiana.",
   "about_me.highlight1_p1": "Universidad de las Américas Puebla (UDLAP)",
-
   "about_me.p2": "He adquirido experiencia práctica en {{core_tech_stack}}, complementada con cursos en desarrollo móvil, IA, UX y bases de datos, lo que me permite abordar desafíos complejos.",
   "about_me.highlight1_p2": "Angular, Python, TypeScript y JavaScript",
-
   "about_me.p3": "Busco convertirme en un {{leading_dev_goal}}, fusionando creatividad y conocimientos técnicos para diseñar experiencias digitales transformadoras. Mi curiosidad por la programación se alimenta de mi afición por los videojuegos y el fútbol, impulsándome a explorar nuevas tendencias y liderar proyectos.",
   "about_me.highlight1_p3": "desarrollador de aplicaciones líder",
-
-
   "projects.title": "Proyectos",
   "projects.code": "Código",
   "projects.demo": "Demo",
   "projects.pacto.title": "Pacto: Gestión Inteligente de Contratos con Blockchain",
   "projects.pacto.description": "Plataforma web que simplifica la creación y gestión de contratos inteligentes. Utiliza blockchain para automatizar flujos contractuales, ofreciendo seguridad y descentralización.",
-
   "projects.mobile_academic.title": "Mobile Academic Management",
   "projects.mobile_academic.description": "Aplicación móvil Android para optimizar la gestión académica. Permite controlar materias, registrar asistencia con QR y consultar calificaciones, automatizando el control académico.",
-
   "projects.cultivo_sano.title": "Cultivo Sano: Detección de Enfermedades en Plantas",
   "projects.cultivo_sano.description": "App móvil iOS que usa visión artificial para la detección temprana de enfermedades en plantas. Empodera a comunidades rurales con diagnósticos rápidos y precisos, mejorando la salud de los cultivos.",
-
   "projects.iot_monitoring.title": "Monitoreo Inteligente de Temperatura con IoT",
   "projects.iot_monitoring.description": "Sistema IoT que monitorea la temperatura en tiempo real y envía alertas automatizadas. Optimiza procesos industriales al prevenir sobrecalentamientos y reducir el tiempo no productivo.",
-
   "projects.cine_series_hub.title": "Cine & Series Hub",
   "projects.cine_series_hub.description": "Aplicación móvil que integra la API de TMDb para explorar películas y series. Ofrece un sistema de favoritos y navegación intuitiva para una experiencia de usuario fluida.",
-
   "projects.inclusive_reservation.title": "Plataforma Web Inclusiva de Reservas en Tiempo Real",
   "projects.inclusive_reservation.description": "Plataforma web con sistema de reservas en tiempo real, perfiles de servicio y recordatorios automáticos. Su diseño inclusivo garantiza accesibilidad total para todos los usuarios.",
-
   "projects.sms_encryption.title": "Cifrado SMS mediante RSA y Análisis SSL/TLS",
   "projects.sms_encryption.description": "Aplicación de mensajería Android con cifrado RSA para comunicaciones SMS seguras. Garantiza la privacidad y autenticación de mensajes, optimizando el rendimiento de descifrado.",
-
   "projects.ml_travel_prediction.title": "Predicción de Cancelaciones de Viaje mediante Aprendizaje de Máquina",
   "projects.ml_travel_prediction.description": "Sistema de Machine Learning que predice cancelaciones de viajes. Analiza datos históricos para ofrecer predicciones precisas y optimizar la gestión de reservas.",
-
   "projects.parking_system.title": "Sistema de Gestión de Estacionamientos",
   "projects.parking_system.description": "Aplicación móvil multiplataforma que optimiza el estacionamiento universitario. Muestra disponibilidad de espacios en tiempo real y permite reservas, mejorando la eficiencia del campus.",
-
   "projects.cancer_support_app.title": "Aplicación de Apoyo para Pacientes Oncológicos",
   "projects.cancer_support_app.description": "Aplicación móvil multiplataforma que ofrece apoyo emocional personalizado a pacientes oncológicos. Integra un chatbot con IA para brindar acompañamiento y recursos.",
-
   "projects.sql_transaction_system.title": "Sistema de Gestión de Transacciones SQL",
   "projects.sql_transaction_system.description": "Aplicación de gestión de transacciones con interfaz gráfica que optimiza operaciones de base de datos. Soporta alto volumen de transacciones, asegurando integridad y eficiencia.",
-
   "projects.super_mario_bros.title": "Super Mario Bros (Recreación)",
   "projects.super_mario_bros.description": "Juego de plataformas retro que recrea la experiencia clásica de Super Mario Bros. Ofrece diseño de niveles dinámico y controles responsivos para una jugabilidad auténtica.",
-
   "projects.vending_machine_logic.title": "Lógica de Máquina Expendedora (VHDL)",
   "projects.vending_machine_logic.description": "Implementación de la lógica de control para una máquina expendedora. Utiliza VHDL y circuitos digitales para procesar pagos y dispensar productos con alta fiabilidad.",
-
   "projects.stemify.title": "STEMify: Orientación Vocacional STEM",
   "projects.stemify.description": "Aplicación móvil iOS que orienta a jóvenes hacia carreras STEM mediante curiosidad guiada, gamificación e inspiración en modelos a seguir. Incluye geolocalización de universidades, scraping web y flujos personalizados.",
-
-
   "experience.title": "Desarrollo y Formación",
-  "experience.relevant_experience_tab": "Experiencia Relevante", 
+  "experience.relevant_experience_tab": "Experiencia Relevante",
   "experience.education_tab": "Educación",
-
   "experience.halliburton.company": "Halliburton - Landmark Software & Services",
   "experience.halliburton.location": "Villahermosa, México",
   "experience.halliburton.role": "Desarrollador web en prácticas (Prácticas profesionales)",
@@ -84,42 +61,30 @@
   "experience.halliburton.desc1": "Experiencia y certificación en Angular: Completé un curso intensivo de Angular en Udemy y obtuve la certificación correspondiente, estableciendo una sólida base técnica que impulsó el desarrollo de aplicaciones web innovadoras.",
   "experience.halliburton.desc2": "Creación de tableros de control para la eficiencia de costes: Desarrollé tableros dinámicos para supervisar y analizar el tiempo no productivo (TNP), respaldando estrategias basadas en datos para reducir costes operativos.",
   "experience.halliburton.desc3": "Metodologías ágiles: Empleé prácticas ágiles para ofrecer soluciones escalables y de alta calidad alineadas con los objetivos estratégicos de Landmark Software & Services.",
-
   "experience.enactus_hackathon.company": "ENACTUS National Changemakers iOS Hackathon 2025",
   "experience.enactus_hackathon.period": "Mayo 2025",
-  "experience.enactus_hackathon.role": "Desarrollador de Aplicación Móvil (2º Lugar)", 
+  "experience.enactus_hackathon.role": "Desarrollador de Aplicación Móvil (2º Lugar)",
   "experience.enactus_hackathon.desc1": "Desarrollé la aplicación \"STEMify\" en Swift para iOS: una solución inclusiva que orienta a jóvenes indecisos hacia carreras STEM mediante curiosidad guiada, gamificación e inspiración en modelos a seguir; reconocida con el segundo lugar en el reto a la mejor solución propuesto por la empresa Bosch.",
   "experience.enactus_hackathon.desc2": "Arquitectura educativa escalable: Implementé geolocalización con CoreLocation y MapKit, scraping web de universidades, integración con Firestore y flujos personalizados; destacada por su impacto social, accesibilidad y enfoque UX centrado en la exploración vocacional.",
-
   "experience.enactus_challenge.company": "ENACTUS National Changemakers Social Challenge iOS 2024",
   "experience.enactus_challenge.period": "Noviembre 2024",
-  "experience.enactus_challenge.role": "Desarrollador de Aplicación Móvil (3º Lugar)", 
+  "experience.enactus_challenge.role": "Desarrollador de Aplicación Móvil (3º Lugar)",
   "experience.enactus_challenge.desc1": "Desarrollo de la aplicación \"Cultivo Sano\" en Swift para iOS: Lideré el desarrollo de una aplicación que empodera a las comunidades rurales mediante visión artificial para la detección temprana de enfermedades de las plantas; proyecto alineado con los ODS y premiado en el podio del desafío.",
   "experience.enactus_challenge.desc2": "Eficacia diagnóstica: Entrené un modelo de detección robusto con más de 10.000 imágenes de plantas, alcanzando un 87% de precisión y reduciendo el tiempo de diagnóstico en un 60% frente a métodos tradicionales.",
-
   "experience.lifi_hackathon.company": "Hackathon iOS Development Lab Local UDLAP 2025",
   "experience.lifi_hackathon.period": "Abril 2025",
   "experience.lifi_hackathon.role": "Desarrollador de Aplicación Móvil (1º Lugar)",
   "experience.lifi_hackathon.desc1": "Ganador del primer lugar en el Hackathon UDLAP 2025 con la aplicación 'Lifi', diseñada para localizar e identificar flora invasora en México. Este logro nos permitió participar en el Hackathon Nacional de Enactus en Guadalajara, México 🇲🇽.",
   "experience.lifi_hackathon.desc2": "Desarrollé funcionalidades clave para la identificación de especies mediante visión por computadora y la visualización de datos geolocalizados, contribuyendo a una solución innovadora para un problema ambiental.",
-
-
-
-  "education.udlap.period": "Agosto 2021 - Junio 2025", 
+  "education.udlap.period": "Agosto 2021 - Junio 2025",
   "education.udlap.institution": "Universidad de las Américas Puebla (UDLAP)",
   "education.udlap.degree": "Licenciatura en Ingeniería en Sistemas Computacionales",
   "education.udlap.average": "Promedio: 9.4",
   "education.udlap.relevant_courses": "Cursos relevantes: Desarrollo de aplicaciones móviles, Ingeniería de software, Inteligencia artificial, UX, HCI, Aprendizaje de máquina, Visión artificial, Bases de datos avanzadas.",
-
-
   "education.cervantes.institution": "Colegio Cervantes Ecuador",
   "education.cervantes.degree": "Bachillerato en Ciencias",
-  "education.cervantes.period": "Septiembre 2017 - Julio 2020", 
+  "education.cervantes.period": "Septiembre 2017 - Julio 2020",
   "education.cervantes.description": "Estudios de bachillerato con enfoque en ciencias, proporcionando una sólida base académica para la educación superior.",
-
-
-
-
   "skills.title": "Tecnologías",
   "skills.description": "Soy proficiente en una variedad de tecnologías modernas que me permiten construir soluciones funcionales y robustas. Estas son algunas de mis principales tecnologías.",
   "skills.languages": "Lenguajes de programación",
@@ -149,7 +114,7 @@
   "skills.other.spanish": "Español (nativo)",
   "skills.other.english": "Inglés (fluido)",
   "skills.other.german": "Alemán (básico)",
-    "skills.lang.swift_description": "Lenguaje de programación para iOS/macOS.",
+  "skills.lang.swift_description": "Lenguaje de programación para iOS/macOS.",
   "skills.lang.kotlin_description": "Lenguaje moderno para Android y desarrollo backend.",
   "skills.lang.dart_description": "Lenguaje de programación para Flutter.",
   "skills.lang.java_description": "Lenguaje de programación versátil.",
@@ -170,8 +135,6 @@
   "skills.tool.git_github_description": "Control de versiones y plataforma de colaboración.",
   "skills.tool.arduino_ide_description": "Entorno de desarrollo para Arduino.",
   "skills.tool.excel_description": "Hoja de cálculo y análisis de datos.",
-
-
   "contact.cta": "¿Interesado en trabajar juntos?",
   "contact.send_message": "Envíame un mensaje",
   "contact.copy_email": "Copiar email",

@@ -9,7 +9,7 @@ import { TranslatePipe } from '../../pipes/translate-pipe';
   selector: 'app-header',
   standalone: true,
   // 2. Importa únicamente LucideAngularModule
-  imports: [LucideAngularModule,TranslatePipe],
+  imports: [LucideAngularModule, TranslatePipe],
   templateUrl: './header.html',
   styleUrl: './header.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -20,7 +20,7 @@ export class Header {
 
   mobileMenuOpen = signal(false);
   language = signal<'es' | 'en'>('es');
-  
+
   darkMode = this.themeService.darkMode;
   currentLanguage = this.translationService.currentLanguage; // <-- Usa la signal de idioma del servicio
 
@@ -46,7 +46,7 @@ export class Header {
     this.translationService.toggleLanguage();
   }
 
-    scrollToSection(sectionId: string): void {
+  scrollToSection(sectionId: string): void {
     // Si el menú móvil está abierto, ciérralo al hacer clic en un enlace.
     if (this.mobileMenuOpen()) {
       this.toggleMobileMenu();
@@ -56,14 +56,6 @@ export class Header {
     if (element) {
       // Usa scrollIntoView con comportamiento suave
       element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      
-      // Opcional: Si tienes un header fijo que oculta parte de la sección
-      // const headerOffset = 80; // Ajusta este valor según la altura de tu header
-      // const elementPosition = element.getBoundingClientRect().top + window.scrollY;
-      // window.scrollTo({
-      //   top: elementPosition - headerOffset,
-      //   behavior: 'smooth'
-      // });
     }
   }
 
