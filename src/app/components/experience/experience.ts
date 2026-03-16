@@ -90,6 +90,22 @@ export class Experience {
 
   relevantExperience = [
     {
+      id: 5, // Nuevo ID único
+      periodKey: 'experience.udlap_mobile.period',
+      companyKey: 'experience.udlap_mobile.company',
+      roleKey: 'experience.udlap_mobile.role',
+      descriptionKeys: [
+        'experience.udlap_mobile.desc1',
+        'experience.udlap_mobile.desc2',
+        'experience.udlap_mobile.desc3'
+      ],
+      logo: 'https://d1yjjnpx0p53s8.cloudfront.net/styles/logo-thumbnail/s3/052013/universidad_de_las_americas_puebla.png?itok=fCDHEd8v',
+      images: [
+        '/eudlapx.png',
+        '/eudlapx2.jpeg'
+      ]
+    },
+    {
       id: 1,
       periodKey: 'experience.halliburton.period',
       companyKey: 'experience.halliburton.company',
@@ -99,7 +115,7 @@ export class Experience {
         'experience.halliburton.desc2',
         'experience.halliburton.desc3'
       ],
-      logo: 'https://shallowanddeepwaterexpo.com/wp-content/uploads/2022/09/kisspng-halliburton-logo-baker-hughes-a-ge-company-oil-fi-halliburton-logo-5a73fd754bc0e4.4639338415175509653103.jpg',
+      logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/HalliburtonNorthHouston.JPG/1280px-HalliburtonNorthHouston.JPG',
       // ¡CAMBIO AQUÍ! Ahora es un array de imágenes
       images: [
         '/hal2.jpeg',
