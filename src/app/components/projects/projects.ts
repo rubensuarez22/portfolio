@@ -18,7 +18,7 @@ import { TranslatePipe } from '../../pipes/translate-pipe';
 
 // ¡NUEVO! Objeto para almacenar las URLs de los iconos de tecnología
 const TECH_ICONS = {
-  ANGULAR: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Angular_full_color_logo.svg/2048px-Angular_full_color_logo.svg.png',
+  ANGULAR: 'https://drive.google.com/uc?export=view&id=1MW3PBBF7n5ScEgsFHBdTNUBY4ZVelWE4',
   SOLIDITY: 'https://www.svgrepo.com/show/374088/solidity.svg',
   METAMASK: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/MetaMask_Fox.svg/2048px-MetaMask_Fox.svg.png',
   SWIFT: 'https://cdn-icons-png.flaticon.com/512/5968/5968371.png',
