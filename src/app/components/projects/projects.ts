@@ -15,37 +15,35 @@ import {
 
 import { ScrollFadeInDirective } from '../../directives/scroll-fade-in';
 import { TranslatePipe } from '../../pipes/translate-pipe';
-
-// ¡NUEVO! Objeto para almacenar las URLs de los iconos de tecnología
 const TECH_ICONS = {
-  ANGULAR: '/angular_logo.png',
-  SOLIDITY: 'https://www.svgrepo.com/show/374088/solidity.svg',
-  METAMASK: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/MetaMask_Fox.svg/2048px-MetaMask_Fox.svg.png',
-  SWIFT: 'https://cdn-icons-png.flaticon.com/512/5968/5968371.png',
-  IOS: 'https://www.freeiconspng.com/uploads/ios-png-6.png',
-  FIRESTORE: 'https://firebase.google.com/downloads/brand-guidelines/PNG/logo-logomark.png',
-  CORE_LOCATION: 'https://www.kodeco.com/assets/murakami/category-icons/category-maps-location-ios-17163152e4da880c4a629fc536b6e460002d130ed409168a16b7bdbe483322bb.svg',
-  MAPKIT: 'https://developer.apple.com/assets/elements/icons/maps/maps-128x128_2x.png',
-  KOTLIN: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Kotlin_Icon.svg/1200px-Kotlin_Icon.svg.png',
-  ANDROID_STUDIO: 'https://developer.android.com/static/images/brand/Android_Studio_Icon_2019.svg',
-  ESP32: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Espressif_ESP32_icon.svg/1200px-Espressif_ESP32_icon.svg.png',
-  INFLUXDB: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/InfluxDB_Logo.svg/1200px-InfluxDB_Logo.svg.png',
-  GRAFANA: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Grafana_logo.svg/1200px-Grafana_logo.svg.png',
+  ANGULAR: '/icons/angular.svg',
+  SOLIDITY: '/icons/solidity.svg',
+  METAMASK: '/icons/metamask.svg',
+  SWIFT: '/icons/swift.svg',
+  IOS: '/icons/ios.svg',
+  FIRESTORE: '/icons/firebase.svg',
+  CORE_LOCATION: '/icons/corelocation.svg',
+  MAPKIT: '/icons/mapkit.svg',
+  KOTLIN: '/icons/kotlin.svg',
+  ANDROID_STUDIO: '/icons/androidstudio.svg',
+  ESP32: '/icons/esp32.svg',
+  INFLUXDB: '/icons/influxdb.svg',
+  GRAFANA: '/icons/grafana.svg',
   TMDB_API: 'https://www.themoviedb.org/assets/2/v4/logos/v2/blue_square_1-5bdc753b7ea7bbdd77d54baf952670bb14e8f19bebbecfd44c20fe4f7f6f87bd.svg',
-  RSA: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/RSA_logo.svg/1200px-RSA_logo.svg.png',
-  PYTHON: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1200px-Python-logo-notext.svg.png',
+  RSA: '/icons/rsa.svg',
+  PYTHON: '/icons/python.svg',
   SCIKIT_LEARN: 'https://scikit-learn.org/stable/_static/scikit-learn-logo-light.svg',
-  ANDROID: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Android_robot.svg/1200px-Android_robot.svg.png',
-  DART: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Dart_logo.svg/1200px-Dart_logo.svg.png',
-  FLUTTER: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Flutter_logo.svg/200px-Flutter_logo.svg.png',
-  AI_CHATBOT: 'https://miro.medium.com/v2/resize:fit:512/1*CVN6qAJuZsSKh6w2c0TQZg.png',
-  JAVASCRIPT: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/1200px-Unofficial_JavaScript_logo_2.svg.png',
-  SQL: 'https://upload.wikimedia.org/wikipedia/commons/8/87/Sql_data_base_with_logo.png',
-  CSHARP: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/C_Sharp_logo_and_wordmark.svg/1200px-C_Sharp_logo_and_wordmark.svg.png',
-  UNITY: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Unity_Technologies_logo.svg/1200px-Unity_Technologies_logo.svg.png',
-  VHDL: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/VHDL_Logo.svg/1200px-VHDL_Logo.svg.png',
-  FPGA: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Altera_logo.svg/1200px-Altera_logo.svg.png'
-}
+  ANDROID: '/icons/android.svg',
+  DART: '/icons/dart.svg',
+  FLUTTER: '/icons/flutter.svg',
+  AI_CHATBOT: '/icons/ai.svg',
+  JAVASCRIPT: '/icons/javascript.svg',
+  SQL: '/icons/mysql.svg',
+  CSHARP: '/icons/csharp.svg',
+  UNITY: '/icons/unity.svg',
+  VHDL: '/icons/vhdl.svg',
+  FPGA: '/icons/fpga.svg'
+};
 
 @Component({
   selector: 'app-projects',

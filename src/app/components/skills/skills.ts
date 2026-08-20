@@ -18,19 +18,19 @@ import { TranslatePipe } from '../../pipes/translate-pipe'; // Asegúrate de la 
 // Puedes consolidar este objeto con el de Projects si lo exportas de un archivo compartido.
 // Por ahora, lo definimos aquí para este componente.
 const SKILL_ICONS = {
-  SWIFT: 'https://cdn-icons-png.flaticon.com/512/5968/5968371.png',
-  KOTLIN: 'https://upload.wikimedia.org/wikipedia/commons/7/74/Kotlin_Icon.png',
-  PYTHON: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1200px-Python-logo-notext.svg.png',
-  ANGULAR: '/angular_logo.png',
-  JAVASCRIPT: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/1200px-Unofficial_JavaScript_logo_2.svg.png',
-  CPP: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/ISO_C%2B%2B_Logo.svg/1200px-ISO_C%2B%2B_Logo.svg.png', // URL de C++
-  HTML: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/1200px-HTML5_logo_and_wordmark.svg.png', // URL de HTML
-  CSS: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/CSS3_logo_and_wordmark.svg/1200px-CSS3_logo_and_wordmark.svg.png', // URL de CSS
-  GIT: 'https://git-scm.com/images/logos/downloads/Git-Icon-1788C.png', // Icono de Git
-  NODEJS: 'https://nodejs.org/static/images/logo.svg', // Icono de Node.js
-  VSCODE: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Visual_Studio_Code_1.35_icon.svg/1200px-Visual_Studio_Code_1.35_icon.svg.png', // Icono de VS Code
-  XCODE: 'https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/67/c9/6c/67c96c86-06f3-1da3-5127-b29ca02c23e9/Xcode-85-220-0-4-0-0-2x-sRGB-0-0.png/1200x630bb.png', // Icono de Xcode
-  VISUAL_STUDIO: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Visual_Studio_Icon_2019.svg/1200px-Visual_Studio_Icon_2019.svg.png', // Icono de Visual Studio
+  SWIFT: '/icons/swift.svg',
+  KOTLIN: '/icons/kotlin.svg',
+  PYTHON: '/icons/python.svg',
+  ANGULAR: '/icons/angular.svg',
+  JAVASCRIPT: '/icons/javascript.svg',
+  CPP: '/icons/cplusplus.svg',
+  HTML: '/icons/html5.svg',
+  CSS: '/icons/css3.svg',
+  GIT: '/icons/git.svg',
+  NODEJS: '/icons/nodejs.svg',
+  VSCODE: '/icons/vscode.svg',
+  XCODE: '/icons/xcode.svg',
+  VISUAL_STUDIO: '/icons/visualstudio.svg',
 };
 
 

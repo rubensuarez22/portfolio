@@ -115,7 +115,7 @@ export class Experience {
         'experience.halliburton.desc2',
         'experience.halliburton.desc3'
       ],
-      logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/HalliburtonNorthHouston.JPG/1280px-HalliburtonNorthHouston.JPG',
+      logo: '/icons/halliburton.svg',
       // ¡CAMBIO AQUÍ! Ahora es un array de imágenes
       images: [
         '/hal2.jpeg',
